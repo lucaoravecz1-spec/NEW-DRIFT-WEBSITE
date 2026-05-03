@@ -59,14 +59,14 @@ const BLOCKS: Block[] = [
 ]
 
 const BASE_SPEED = 12
-const SPACE_SPEED = 8
-const PUNCT_PAUSE = 140
-const BLOCK_PAUSE = 250
+const SPACE_SPEED = 0
+const PUNCT_PAUSE = 110
+const BLOCK_PAUSE = 180
 
-function delayFor(char: string): number {
-  if (/[.,;:—!?]/.test(char)) return PUNCT_PAUSE
-  if (char === ' ') return SPACE_SPEED
-  return BASE_SPEED
+function getStep(char: string): { delay: number; size: number } {
+  if (/[.,;:—!?]/.test(char)) return { delay: PUNCT_PAUSE, size: 1 }
+  if (char === ' ') return { delay: SPACE_SPEED, size: 1 }
+  return { delay: BASE_SPEED, size: 2 }
 }
 
 export default function TypewriterReveal() {
@@ -80,26 +80,35 @@ export default function TypewriterReveal() {
   useEffect(() => {
     if (!sectionRef.current) return
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !started) {
-            setStarted(true)
-          }
-        })
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true)
+          observer.disconnect()
+        }
       },
       { threshold: 0, rootMargin: '0px 0px -10% 0px' }
     )
     observer.observe(sectionRef.current)
     return () => observer.disconnect()
-  }, [started])
+  }, [])
 
   useEffect(() => {
     if (!started) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setRevealed(BLOCKS.map((block) => block.segments.map((segment) => segment.text)))
+      setActiveBlock(-1)
+      return
+    }
 
     let cancelled = false
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
     let blockIdx = 0
     let segIdx = 0
     let charIdx = 0
+
+    const schedule = (delay: number) => {
+      timeoutId = setTimeout(tick, delay)
+    }
 
     const tick = () => {
       if (cancelled) return
@@ -113,29 +122,31 @@ export default function TypewriterReveal() {
         blockIdx++
         segIdx = 0
         charIdx = 0
-        setTimeout(tick, BLOCK_PAUSE)
+        schedule(BLOCK_PAUSE)
         return
       }
       const segText = block.segments[segIdx].text
       if (charIdx >= segText.length) {
         segIdx++
         charIdx = 0
-        tick()
+        schedule(0)
         return
       }
       const char = segText[charIdx]
-      charIdx++
+      const { delay, size } = getStep(char)
+      charIdx = Math.min(segText.length, charIdx + size)
       setRevealed((prev) => {
         const next = prev.map((row) => [...row])
         next[blockIdx][segIdx] = segText.slice(0, charIdx)
         return next
       })
-      setTimeout(tick, delayFor(char))
+      schedule(delay)
     }
 
     tick()
     return () => {
       cancelled = true
+      if (timeoutId) clearTimeout(timeoutId)
     }
   }, [started])
 

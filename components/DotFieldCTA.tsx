@@ -2,10 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 
-const COLS = 56
-const ROWS = 32
+const COLS = 40
+const ROWS = 24
 const ACCENT_RATIO = 0.06
-const WAVE_DELAY_MS = 38
+const WAVE_DELAY_MS = 52
 const PROMPT_INTERVAL = 3800
 
 const PROMPTS = [
@@ -205,6 +205,7 @@ export default function DotFieldCTA() {
           background: rgba(232, 226, 213, 0.55);
           animation: driftDotPulse 4800ms ease-in-out infinite;
           will-change: opacity, transform;
+          transform: translateZ(0);
         }
         .drift-dot-accent {
           animation-name: driftDotAccentPulse;
@@ -291,4 +292,3 @@ function PillSelect({
     </div>
   )
 }
-

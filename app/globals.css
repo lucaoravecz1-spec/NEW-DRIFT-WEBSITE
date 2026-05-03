@@ -2,17 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #050505;
+  --text: #f3efe8;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-medium: 320ms;
+  --duration-slow: 720ms;
+}
+
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 body {
-  background: #ffffff;
-  color: #0f1419;
+  background: var(--bg);
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

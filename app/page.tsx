@@ -18,7 +18,13 @@ export default function Home() {
 
   useEffect(() => {
     if (hasSent || !splashDone) return
-    const startDelay = setTimeout(() => setIsTyping(true), 400)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTypedText('what is drift?')
+      setHasSent(true)
+      return
+    }
+
+    const startDelay = setTimeout(() => setIsTyping(true), 180)
     return () => clearTimeout(startDelay)
   }, [hasSent, splashDone])
 
@@ -26,16 +32,18 @@ export default function Home() {
     if (!isTyping || hasSent) return
     const fullText = 'what is drift?'
     let currentIndex = 0
+
     const typeInterval = setInterval(() => {
       if (currentIndex < fullText.length) {
-        setTypedText(fullText.slice(0, currentIndex + 1))
-        currentIndex++
+        currentIndex = Math.min(fullText.length, currentIndex + 2)
+        setTypedText(fullText.slice(0, currentIndex))
       } else {
         setIsTyping(false)
-        setTimeout(() => handleSend(), 700)
+        setTimeout(() => handleSend(), 260)
         clearInterval(typeInterval)
       }
-    }, 90)
+    }, 46)
+
     return () => clearInterval(typeInterval)
   }, [isTyping, hasSent])
 
@@ -46,7 +54,7 @@ export default function Home() {
       if (contentRef.current) {
         contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
-    }, 350)
+    }, 220)
   }
 
   const chips = [
@@ -102,6 +110,8 @@ export default function Home() {
           muted
           loop
           playsInline
+          preload="metadata"
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/hero.mp4" type="video/mp4" />

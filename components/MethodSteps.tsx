@@ -43,21 +43,34 @@ export default function MethodSteps() {
   useEffect(() => {
     if (!sectionRef.current) return
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting && !started) setStarted(true)
-        })
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true)
+          observer.disconnect()
+        }
       },
       { threshold: 0.2 }
     )
     observer.observe(sectionRef.current)
     return () => observer.disconnect()
-  }, [started])
+  }, [])
 
   useEffect(() => {
     if (!started) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTyped(HEADLINE)
+      setHeadlineDone(true)
+      return
+    }
+
     let cancelled = false
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
     let i = 0
+
+    const schedule = (delay: number) => {
+      timeoutId = setTimeout(tick, delay)
+    }
+
     const tick = () => {
       if (cancelled) return
       if (i >= HEADLINE.length) {
@@ -65,30 +78,39 @@ export default function MethodSteps() {
         return
       }
       const ch = HEADLINE[i]
-      i++
+      i = Math.min(HEADLINE.length, i + (ch === ' ' ? 1 : 2))
       setTyped(HEADLINE.slice(0, i))
-      const delay = /[.,;:]/.test(ch) ? 320 : ch === ' ' ? 22 : 38
-      setTimeout(tick, delay)
+      const delay = /[.,;:]/.test(ch) ? 180 : ch === ' ' ? 10 : 24
+      schedule(delay)
     }
-    setTimeout(tick, 250)
+
+    schedule(160)
     return () => {
       cancelled = true
+      if (timeoutId) clearTimeout(timeoutId)
     }
   }, [started])
 
   useEffect(() => {
     if (!headlineDone) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setRevealedSteps(STEPS.length)
+      return
+    }
+
     let cancelled = false
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
     const reveal = (idx: number) => {
       if (cancelled || idx > STEPS.length) return
       setRevealedSteps(idx)
       if (idx < STEPS.length) {
-        setTimeout(() => reveal(idx + 1), 200)
+        timeoutId = setTimeout(() => reveal(idx + 1), 150)
       }
     }
-    setTimeout(() => reveal(1), 400)
+    timeoutId = setTimeout(() => reveal(1), 240)
     return () => {
       cancelled = true
+      if (timeoutId) clearTimeout(timeoutId)
     }
   }, [headlineDone])
 
@@ -125,7 +147,7 @@ export default function MethodSteps() {
                   : revealedSteps === 1
                   ? '0%'
                   : '0%',
-              transition: 'height 700ms cubic-bezier(0.19, 1, 0.22, 1)',
+              transition: 'height 560ms var(--ease-smooth)',
             }}
           />
 
@@ -139,8 +161,7 @@ export default function MethodSteps() {
                 style={{
                   opacity: isRevealed ? 1 : 0,
                   transform: isRevealed ? 'translateY(0)' : 'translateY(12px)',
-                  transition:
-                    'opacity 600ms cubic-bezier(0.19, 1, 0.22, 1), transform 600ms cubic-bezier(0.19, 1, 0.22, 1)',
+                  transition: 'opacity 520ms var(--ease-smooth), transform 520ms var(--ease-smooth)',
                 }}
               >
                 {/* Dot — only on first three */}
@@ -172,8 +193,8 @@ export default function MethodSteps() {
         <div
           className="mt-16 pt-12 border-t border-white/10"
           style={{
-            opacity: revealedSteps > STEPS.length ? 1 : 0,
-            transition: 'opacity 800ms ease-out',
+            opacity: revealedSteps >= STEPS.length ? 1 : 0,
+            transition: 'opacity 520ms var(--ease-smooth)',
           }}
         >
           <p className="text-xl md:text-2xl text-[#E8E2D5] font-light leading-relaxed italic">
