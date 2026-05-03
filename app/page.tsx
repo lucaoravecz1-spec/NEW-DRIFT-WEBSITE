@@ -8,7 +8,6 @@ import BentoGrid from '@/components/BentoGrid'
 import IntegrationsMarquee from '@/components/IntegrationsMarquee'
 import DotFieldCTA from '@/components/DotFieldCTA'
 import CompetitivePositioning from '@/components/CompetitivePositioning'
-import FoundersNote from '@/components/FoundersNote'
 import { useState, useEffect, useRef } from 'react'
 
 export default function Home() {
@@ -217,9 +216,6 @@ export default function Home() {
 
       {/* Integrations marquee */}
       <IntegrationsMarquee />
-
-      {/* Founders note (social-proof section deliberately omitted until we have honest content) */}
-      <FoundersNote />
 
       {/* CTA + Footer */}
       <DotFieldCTA />
