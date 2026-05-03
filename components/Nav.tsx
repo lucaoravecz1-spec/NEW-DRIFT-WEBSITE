@@ -31,6 +31,8 @@ export default function Nav() {
     function onClick(e: MouseEvent) {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setOpenIdx(null)
+        setMobileOpen(false)
+        setMobileExpanded(null)
       }
     }
     function onKey(e: KeyboardEvent) {
@@ -46,6 +48,13 @@ export default function Nav() {
       document.removeEventListener('keydown', onKey)
     }
   }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
 
   const clearTimers = () => {
     if (openTimer.current) clearTimeout(openTimer.current)
@@ -66,7 +75,7 @@ export default function Nav() {
   return (
     <header
       ref={navRef}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
+      className="fixed top-4 left-4 right-4 z-50 md:top-6 md:left-1/2 md:right-auto md:-translate-x-1/2"
     >
       {/* Desktop pill */}
       <nav
@@ -110,7 +119,7 @@ export default function Nav() {
 
       {/* Mobile pill */}
       <nav
-        className="flex md:hidden items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full"
+        className="flex md:hidden w-full items-center justify-between gap-3 pl-6 pr-1.5 py-1.5 rounded-full"
         style={{
           background: 'rgba(15, 15, 15, 0.78)',
           backdropFilter: 'blur(20px)',
@@ -150,7 +159,7 @@ export default function Nav() {
       {/* Mobile slide-in panel */}
       {mobileOpen && (
         <div
-          className="md:hidden fixed inset-0 top-0 z-40 bg-black/95 backdrop-blur-xl pt-28 px-6 overflow-y-auto"
+          className="md:hidden fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl px-6 pt-28 overflow-y-auto"
           style={{ animation: 'driftMobileFade 200ms ease-out' }}
         >
           <ul className="space-y-1">
@@ -183,7 +192,10 @@ export default function Nav() {
                           <li key={c.href}>
                             <Link
                               href={c.href}
-                              onClick={() => setMobileOpen(false)}
+                              onClick={() => {
+                                setMobileOpen(false)
+                                setMobileExpanded(null)
+                              }}
                               className="block py-2 text-base text-[#E8E2D5]"
                             >
                               {c.label}
@@ -196,7 +208,10 @@ export default function Nav() {
                 ) : (
                   <Link
                     href={item.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={() => {
+                      setMobileOpen(false)
+                      setMobileExpanded(null)
+                    }}
                     className="block text-2xl font-light text-white py-3 border-b border-white/10"
                   >
                     {item.label}
@@ -207,7 +222,10 @@ export default function Nav() {
           </ul>
           <Link
             href="/demo"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => {
+              setMobileOpen(false)
+              setMobileExpanded(null)
+            }}
             className="mt-8 inline-block bg-white text-black px-8 py-3 rounded-full text-base font-semibold w-full text-center"
           >
             Get Started
