@@ -7,6 +7,8 @@ import ProductDemos from '@/components/ProductDemos'
 import BentoGrid from '@/components/BentoGrid'
 import IntegrationsMarquee from '@/components/IntegrationsMarquee'
 import DotFieldCTA from '@/components/DotFieldCTA'
+import CompetitivePositioning from '@/components/CompetitivePositioning'
+import FoundersNote from '@/components/FoundersNote'
 import { useState, useEffect, useRef } from 'react'
 
 export default function Home() {
@@ -105,6 +107,10 @@ export default function Home() {
       <SplashScreen onDone={() => setSplashDone(true)} />
       {/* Hero Section with Video */}
       <section className="relative w-full h-screen overflow-hidden bg-black">
+        {/* TODO: needs content from human — add a poster image (e.g. /hero-poster.jpg)
+            and pass it as poster={...}. Today the section's bg-black is the only
+            fallback before the video buffers, on mobile data-saver, or where autoplay
+            is blocked. */}
         <video
           autoPlay
           muted
@@ -112,7 +118,7 @@ export default function Home() {
           playsInline
           preload="metadata"
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover bg-black"
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
@@ -127,6 +133,17 @@ export default function Home() {
               </h1>
               <p className="text-[10px] tracking-[0.3em] text-gray-400 mt-2 uppercase">
                 by Drift
+              </p>
+              <p
+                className="mt-6 mx-auto text-[16px] md:text-[17px] leading-relaxed font-light"
+                style={{ color: '#8b8780', maxWidth: '540px' }}
+              >
+                AI agents for RIAs that draft compliance memos, surface tax-loss
+                opportunities, and{' '}
+                <em className="italic text-[#E8E2D5]/85">
+                  keep the human in the loop
+                </em>
+                .
               </p>
             </div>
 
@@ -189,6 +206,9 @@ export default function Home() {
       {/* The Method — 4-step cascade */}
       <MethodSteps />
 
+      {/* Different from the point tools */}
+      <CompetitivePositioning />
+
       {/* Product Demos */}
       <ProductDemos />
 
@@ -197,6 +217,9 @@ export default function Home() {
 
       {/* Integrations marquee */}
       <IntegrationsMarquee />
+
+      {/* Founders note (social-proof section deliberately omitted until we have honest content) */}
+      <FoundersNote />
 
       {/* CTA + Footer */}
       <DotFieldCTA />

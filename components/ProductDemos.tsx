@@ -10,7 +10,7 @@ type Demo = {
 
 const DEMOS: Demo[] = [
   {
-    tag: 'DANTE — LLM',
+    tag: 'DANTE — the assistant',
     title: 'Ask the firm a question.',
     body: 'DANTE reads your custodial data, planning models, and document vault in real time. Every answer is sourced, traceable, and auditable.',
   },

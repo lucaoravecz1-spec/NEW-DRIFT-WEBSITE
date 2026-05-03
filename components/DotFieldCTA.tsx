@@ -123,6 +123,10 @@ export default function DotFieldCTA() {
           </h2>
         </div>
 
+        <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-3 text-center">
+          Tell us about your firm
+        </div>
+
         <div className="rounded-2xl bg-black/70 backdrop-blur-xl border border-white/15 p-5 shadow-2xl">
           <div className="relative min-h-[96px] mb-3 px-2 pt-1">
             <textarea
@@ -191,7 +195,10 @@ export default function DotFieldCTA() {
           </div>
         </div>
 
-        <div className="text-center mt-6 text-xs tracking-[0.2em] text-gray-600">
+        <div className="text-center mt-4 text-[12px] text-gray-500 font-light">
+          We&rsquo;ll respond within 1 business day.
+        </div>
+        <div className="text-center mt-3 text-xs tracking-[0.2em] text-gray-600">
           NO CREDIT CARD · 30-MIN SETUP · SOC 2 TYPE II
         </div>
       </div>

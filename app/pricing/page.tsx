@@ -70,7 +70,7 @@ const FAQ = [
   },
   {
     q: 'Do you offer a trial?',
-    a: 'We don\u2019t do free trials, but we do paid 60-day pilots scoped to a single segment of your book. Most pilots convert to multi-year agreements.',
+    a: 'We don\u2019t do free trials, but we do paid 60-day pilots scoped to a single segment of your book.',
   },
   {
     q: 'What does the contract look like?',
@@ -84,6 +84,48 @@ const FAQ = [
     q: 'Do you train models on our data?',
     a: 'No. Customer data never enters foundation model training sets, ours or our vendors\u2019. Inference runs against zero-retention endpoints.',
   },
+  {
+    q: 'What happens to our data if we churn?',
+    // TODO: needs content from human — confirm export formats (CSV / Parquet / JSON),
+    // retention window, and deletion SLA.
+    a: '',
+    pending: true,
+  },
+  {
+    q: 'Who are your sub-processors?',
+    // TODO: needs content from human — link to /security or a maintained
+    // sub-processor list with the current vendor set + regions.
+    a: '',
+    pending: true,
+  },
+  {
+    q: 'What\u2019s your incident response process?',
+    // TODO: needs content from human — confirm severity tiers, customer
+    // notification SLA, and on-call rotation cadence.
+    a: '',
+    pending: true,
+  },
+  {
+    q: 'Which models does Drift use?',
+    // TODO: needs content from human — name the foundation models and the
+    // routing logic between them; flag any customer-configurable selection.
+    a: '',
+    pending: true,
+  },
+  {
+    q: 'How do you handle hallucinations?',
+    // TODO: needs content from human — describe the grounding / retrieval
+    // discipline, confidence thresholds, and the human-approval surface.
+    a: '',
+    pending: true,
+  },
+  {
+    q: 'Does Drift support self-hosting or VPC deployment?',
+    // TODO: needs content from human — clarify whether tenant isolation in the
+    // Enterprise tier covers VPC, and whether on-prem is on the roadmap.
+    a: '',
+    pending: true,
+  },
 ]
 
 export default function Page() {
@@ -96,7 +138,7 @@ export default function Page() {
             Built for the <em className="font-serif italic text-[#E8E2D5]">size of your firm.</em>
           </>
         }
-        lede="Three plans, each priced against the size of the firm rather than the size of the data. Most firms see ROI inside the first quarter."
+        lede="Three plans, each priced against the size of the firm rather than the size of the data. Designed for ROI within the first quarter."
       />
 
       {/* Tiers */}
@@ -207,7 +249,7 @@ export default function Page() {
           </h2>
 
           <dl className="divide-y divide-white/[0.06] border-y border-white/[0.06]">
-            {FAQ.map((f) => (
+            {FAQ.filter((f) => !('pending' in f) || !f.pending).map((f) => (
               <div key={f.q} className="grid sm:grid-cols-12 gap-3 sm:gap-8 py-7">
                 <dt className="sm:col-span-5 text-base font-medium text-white tracking-tight leading-snug">
                   {f.q}
