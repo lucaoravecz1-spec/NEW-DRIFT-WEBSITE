@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const ROW_ONE = [
+// TODO: needs content from human — confirm which integrations are actually
+// production-live versus aspirational. Until then, every name below is treated
+// as ROADMAP. Move items into LIVE_* once the connector is shipping in prod.
+const LIVE_ROW_ONE: string[] = []
+const LIVE_ROW_TWO: string[] = []
+
+const ROADMAP_ROW_ONE = [
   'Schwab',
   'Fidelity',
   'Pershing',
@@ -15,7 +21,7 @@ const ROW_ONE = [
   'Apex',
 ]
 
-const ROW_TWO = [
+const ROADMAP_ROW_TWO = [
   'Addepar',
   'Orion',
   'Black Diamond',
@@ -28,7 +34,7 @@ const ROW_TWO = [
   'RightCapital',
 ]
 
-const ROW_THREE = [
+const ROADMAP_ROW_THREE = [
   'DocuSign',
   'Box',
   'Dropbox',
@@ -57,6 +63,8 @@ export default function IntegrationsMarquee() {
     return () => obs.disconnect()
   }, [])
 
+  const hasLive = LIVE_ROW_ONE.length > 0 || LIVE_ROW_TWO.length > 0
+
   return (
     <section
       ref={sectionRef}
@@ -76,7 +84,7 @@ export default function IntegrationsMarquee() {
       </div>
 
       <div
-        className="relative space-y-5"
+        className="relative"
         style={{
           opacity: visible ? 1 : 0,
           transition: 'opacity 800ms ease-out',
@@ -86,9 +94,53 @@ export default function IntegrationsMarquee() {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-black to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 z-10 bg-gradient-to-l from-black to-transparent" />
 
-        <MarqueeRow items={ROW_ONE} duration={48} direction="left" />
-        <MarqueeRow items={ROW_TWO} duration={56} direction="right" />
-        <MarqueeRow items={ROW_THREE} duration={52} direction="left" />
+        {hasLive && (
+          <div className="mb-12">
+            <TierLabel eyebrow="LIVE" sub="Production integrations" />
+            <div className="space-y-5">
+              {LIVE_ROW_ONE.length > 0 && (
+                <MarqueeRow
+                  items={LIVE_ROW_ONE}
+                  duration={48}
+                  direction="left"
+                  tier="live"
+                />
+              )}
+              {LIVE_ROW_TWO.length > 0 && (
+                <MarqueeRow
+                  items={LIVE_ROW_TWO}
+                  duration={56}
+                  direction="right"
+                  tier="live"
+                />
+              )}
+            </div>
+          </div>
+        )}
+
+        <div>
+          <TierLabel eyebrow="COMING 2026" sub="Roadmap" />
+          <div className="space-y-5">
+            <MarqueeRow
+              items={ROADMAP_ROW_ONE}
+              duration={48}
+              direction="left"
+              tier="roadmap"
+            />
+            <MarqueeRow
+              items={ROADMAP_ROW_TWO}
+              duration={56}
+              direction="right"
+              tier="roadmap"
+            />
+            <MarqueeRow
+              items={ROADMAP_ROW_THREE}
+              duration={52}
+              direction="left"
+              tier="roadmap"
+            />
+          </div>
+        </div>
       </div>
 
       <style>{`
@@ -108,19 +160,34 @@ export default function IntegrationsMarquee() {
   )
 }
 
+function TierLabel({ eyebrow, sub }: { eyebrow: string; sub: string }) {
+  return (
+    <div className="max-w-6xl mx-auto mb-5 flex items-baseline gap-3">
+      <span className="text-[10px] tracking-[0.3em] uppercase text-[#E8E2D5]/80 font-medium">
+        {eyebrow}
+      </span>
+      <span className="text-[11px] text-gray-500 font-light">{sub}</span>
+    </div>
+  )
+}
+
 function MarqueeRow({
   items,
   duration,
   direction,
+  tier,
 }: {
   items: string[]
   duration: number
   direction: 'left' | 'right'
+  tier: 'live' | 'roadmap'
 }) {
-  // duplicate for seamless loop
   const doubled = [...items, ...items]
+  const opacity = tier === 'roadmap' ? 0.6 : 1
+  const sizing =
+    tier === 'roadmap' ? 'px-4 py-2 text-xs' : 'px-5 py-3 text-sm'
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden" style={{ opacity }}>
       <div
         className="drift-marquee-track flex gap-3 w-max"
         style={{
@@ -130,10 +197,10 @@ function MarqueeRow({
         {doubled.map((name, i) => (
           <div
             key={`${name}-${i}`}
-            className="flex items-center gap-3 px-5 py-3 rounded-full border border-white/10 bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.05] transition-colors duration-300"
+            className={`flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.05] transition-colors duration-300 ${sizing}`}
           >
-            <LogoMark name={name} />
-            <span className="text-sm text-[#E8E2D5] whitespace-nowrap font-light">
+            <LogoMark name={name} size={tier === 'roadmap' ? 'sm' : 'md'} />
+            <span className="text-[#E8E2D5] whitespace-nowrap font-light">
               {name}
             </span>
           </div>
@@ -143,11 +210,13 @@ function MarqueeRow({
   )
 }
 
-function LogoMark({ name }: { name: string }) {
-  // small monogram square — first letter of name in cream
+function LogoMark({ name, size }: { name: string; size: 'sm' | 'md' }) {
   const letter = name[0]
+  const dim = size === 'sm' ? 'w-5 h-5 text-[10px]' : 'w-6 h-6 text-[11px]'
   return (
-    <div className="w-6 h-6 rounded-md bg-white/[0.06] border border-white/10 flex items-center justify-center text-[11px] font-semibold text-[#E8E2D5]/80">
+    <div
+      className={`rounded-md bg-white/[0.06] border border-white/10 flex items-center justify-center font-semibold text-[#E8E2D5]/80 ${dim}`}
+    >
       {letter}
     </div>
   )

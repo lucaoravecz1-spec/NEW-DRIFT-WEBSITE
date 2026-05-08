@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import MaturityBand from '@/components/MaturityBand'
 
 export const metadata: Metadata = {
   title: 'Drift — Autonomous wealth intelligence',
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="bg-black text-white">
         <Nav />
         {children}
+        <MaturityBand />
         <Footer />
       </body>
     </html>

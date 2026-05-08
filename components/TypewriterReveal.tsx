@@ -30,7 +30,7 @@ const BLOCKS: Block[] = [
     variant: 'note',
     segments: [
       {
-        text: 'DANTE — our LLM — reads documents, runs workflows, and stands watch on compliance.',
+        text: "DANTE — Drift's wealth ops assistant — reads documents, runs workflows, and stands watch on compliance.",
         emphasis: 'muted',
       },
     ],
