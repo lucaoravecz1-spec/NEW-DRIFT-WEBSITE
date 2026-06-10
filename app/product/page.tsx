@@ -4,59 +4,59 @@ export default function Page() {
   return (
     <MarketingOverviewPage
       eyebrow="Product"
-      headline={<>The platform, end to end.</>}
-      lede="Assistant, Vault, Agents, and Compliance are four surfaces of one operating model. Start anywhere. The context, controls, and workflows compound across the whole firm."
+      headline={<>The CRE operating layer, end to end.</>}
+      lede="Drift combines expert reasoning with proactive execution so teams can analyze properties, move diligence, and keep operational work in motion without adding more software sprawl."
       cards={[
         {
-          title: 'Assistant',
-          body: 'A firm-grounded interface for prep, answers, and follow-through on live households.',
+          title: 'Reasoning',
+          body: 'Interpret site, market, and deal data like a senior CRE professional.',
           href: '/product/assistant',
-          label: 'See Assistant',
+          label: 'See reasoning',
         },
         {
-          title: 'Vault',
-          body: 'Document understanding across statements, trusts, letters, and client records.',
+          title: 'Diligence',
+          body: 'Read leases, reconcile statements, and surface the risks hiding in the documents.',
           href: '/product/vault',
-          label: 'See Vault',
+          label: 'See diligence',
         },
         {
-          title: 'Agents',
-          body: 'Always-on workflows that scan, draft, queue, and notify before the team asks.',
+          title: 'Operations',
+          body: 'Handle tenant, leasing, and property workflows without manual follow-up loops.',
           href: '/product/agents',
-          label: 'See Agents',
+          label: 'See operations',
         },
         {
-          title: 'Compliance',
-          body: 'Review trails, approvals, and audit-ready artifacts built into every recommendation.',
+          title: 'Agentic Layer',
+          body: 'Voice, SMS, and proactive automation that makes Drift feel like a live teammate.',
           href: '/product/compliance',
-          label: 'See Compliance',
+          label: 'See agentic layer',
         },
       ]}
       sections={[
         {
-          label: 'How it fits',
-          title: 'One model, four working surfaces.',
-          body: 'The advisor does not need another app for every task. Drift connects to the current stack, builds a living context model, and exposes that model in the right place for the job.',
+          label: 'One system',
+          title: 'Think and act in the same workflow.',
+          body: 'Most software stops at delivering information. Drift turns information into conclusions, and then helps move the next action forward.',
           points: [
-            'Shared household memory across meetings, messages, portfolios, and documents.',
-            'Grounded retrieval so every answer can cite source records and timestamps.',
-            'Human approval gates before anything reaches a client, custodian, or archive.',
+            'Move from site question to recommendation in one system.',
+            'Carry context from analysis into follow-up and communication.',
+            'Keep evidence, reasoning, and outputs tied together.',
           ],
         },
         {
-          label: 'What changes',
-          title: 'The team spends less time stitching systems together.',
-          body: 'Instead of making advisors act as the integration layer, Drift prepares the work before the conversation starts and leaves a clean trail after it ends.',
+          label: 'Why teams buy',
+          title: 'Leverage where the expensive time sits.',
+          body: 'CRE teams already have data sources. What they lack is enough senior bandwidth to interpret, synthesize, and follow through at the speed the market demands.',
           points: [
-            'Prep packets assembled overnight from CRM, documents, and account changes.',
-            'Drafted replies and memos tied to the exact household context they reference.',
-            'A single review queue for recommendations, approvals, and exceptions.',
+            'Screen more opportunities without hiring linearly.',
+            'Reduce manual work in diligence and property operations.',
+            'Make recommendations easier to trust because the sources stay visible.',
           ],
         },
       ]}
       cta={{
-        eyebrow: 'See the full flow',
-        title: 'We can walk through the product on a sandbox that matches your firm.',
+        eyebrow: 'See the workflow',
+        title: 'We can show Drift on a real CRE use case in one call.',
         label: 'Book a demo',
         href: '/demo',
       }}

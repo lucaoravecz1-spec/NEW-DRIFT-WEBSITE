@@ -4,59 +4,59 @@ export default function Page() {
   return (
     <MarketingOverviewPage
       eyebrow="Demo"
-      headline={<>See Drift on your firm.</>}
-      lede="A 30-minute walkthrough with our team, anchored in the workflows your advisors and operators already run every day."
+      headline={<>See Drift on a real CRE workflow.</>}
+      lede="The best Drift demo is anchored in a real property, deal, or operational bottleneck. We show the reasoning, the output, and what happens next."
       cards={[
         {
-          title: 'Before the call',
-          body: 'We gather your firm size, custodians, core systems, and the workflows you want to pressure-test.',
-          href: '/contact',
-          label: 'Share firm details',
+          title: 'For developers',
+          body: 'Walk through site selection, void analysis, or highest-and-best-use.',
+          href: '/product/assistant',
+          label: 'See reasoning',
         },
         {
-          title: 'During the demo',
-          body: 'We show prep, messaging, document analysis, and approvals running on one household thread.',
-          href: '/product',
-          label: 'Preview the product',
+          title: 'For investors',
+          body: 'Pressure-test deal screening, memos, and diligence synthesis.',
+          href: '/product/vault',
+          label: 'See diligence',
         },
         {
-          title: 'Security review',
-          body: 'If needed, we can cover retention, permissions, and the compliance package in the same meeting.',
-          href: '/security',
-          label: 'Review controls',
+          title: 'For operators',
+          body: 'Review tenant communication, tasks, and proactive follow-through.',
+          href: '/product/agents',
+          label: 'See operations',
         },
         {
-          title: 'Pilot design',
-          body: 'Most firms leave with a practical first use case and an implementation path sized to the team.',
-          href: '/pricing',
-          label: 'See pilot fit',
+          title: 'For teams on the move',
+          body: 'See how Drift can be run by workflow, voice, or text from your phone.',
+          href: '/product/compliance',
+          label: 'See agentic layer',
         },
       ]}
       sections={[
         {
-          label: 'Agenda',
-          title: 'What we cover in the first 30 minutes.',
-          body: 'The goal is not a polished product tour. It is to see whether Drift changes the economics of the workflows your team already carries.',
+          label: 'What we show',
+          title: 'From input to recommendation to next action.',
+          body: 'Drift is most compelling when you can see the whole chain, not just one report.',
           points: [
-            'How Drift reads CRM, custodial, planning, and document context without a re-platform.',
-            'How an advisor or operator approves, edits, or rejects recommendations in the loop.',
-            'Where firms usually start: prep, drafts, document review, or tax-aware monitoring.',
+            'How the system assembles evidence from approved sources',
+            'How it distinguishes fact from judgment and cites its work',
+            'How outputs become a report, memo, or follow-up task',
           ],
         },
         {
-          label: 'Best fit',
-          title: 'The most useful demos are anchored in one specific workflow.',
-          body: 'Bring one high-friction process and one real operating constraint. That is enough to see whether Drift is a fit.',
+          label: 'Best first call',
+          title: 'Bring one real use case.',
+          body: 'The strongest first demo is usually a specific high-friction workflow the team already cares about.',
           points: [
-            'Examples: annual review prep, compliance memo drafting, concentrated position monitoring.',
-            'We can adapt for solo RIAs, multi-advisor firms, and bank-affiliated wealth teams.',
-            'A strong first pilot is usually narrow, measurable, and easy to approve internally.',
+            'A site decision that needs to be made soon',
+            'A diligence process that takes too long',
+            'An operations workflow with too many dropped follow-ups',
           ],
         },
       ]}
       cta={{
         eyebrow: 'Ready to book',
-        title: 'If you want, the next step can simply be a call focused on one workflow.',
+        title: 'We can tailor the walkthrough to development, brokerage, investment, or operations.',
         label: 'Contact Drift',
         href: '/contact',
       }}

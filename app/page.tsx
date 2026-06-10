@@ -1,224 +1,229 @@
 'use client'
 
-import SplashScreen from '@/components/SplashScreen'
-import TypewriterReveal from '@/components/TypewriterReveal'
-import MethodSteps from '@/components/MethodSteps'
-import ProductDemos from '@/components/ProductDemos'
-import BentoGrid from '@/components/BentoGrid'
-import IntegrationsMarquee from '@/components/IntegrationsMarquee'
-import DotFieldCTA from '@/components/DotFieldCTA'
-import CompetitivePositioning from '@/components/CompetitivePositioning'
-import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+
+const AUDIENCES = [
+  {
+    name: 'Developers',
+    body: 'Source sites faster, pressure-test highest-and-best-use, and catch entitlement risk before the wrong parcel eats months.',
+  },
+  {
+    name: 'Brokers',
+    body: 'Win with better site selection, sharper valuations, faster offering materials, and real answers on whether a location works.',
+  },
+  {
+    name: 'Investors',
+    body: 'Screen more deals, produce tighter memos, and move from raw information to buy, pass, or renegotiate faster.',
+  },
+  {
+    name: 'Owners & operators',
+    body: 'Handle tenant communication, maintenance triage, renewals, and at-risk signals without adding more operational drag.',
+  },
+]
+
+const MODULES = [
+  'Site selection and market analysis',
+  'Underwriting and financial review',
+  'Due diligence and lease abstraction',
+  'Zoning, buildability, and highest-and-best-use',
+  'IC memos and investment synthesis',
+  'Voice, SMS, workflow automation, and proactive follow-through',
+]
+
+const TRUST = [
+  'Drift cites the source behind each important claim and recommendation.',
+  'If data is missing, Drift flags it instead of pretending certainty.',
+  'Verified fact and expert judgment are kept distinct in the output.',
+  'The system is designed to help professionals act, not to bluff them into acting.',
+]
 
 export default function Home() {
-  const [typedText, setTypedText] = useState('')
-  const [isTyping, setIsTyping] = useState(false)
-  const [hasSent, setHasSent] = useState(false)
-  const [splashDone, setSplashDone] = useState(false)
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (hasSent || !splashDone) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setTypedText('what is drift?')
-      setHasSent(true)
-      return
-    }
-
-    const startDelay = setTimeout(() => setIsTyping(true), 180)
-    return () => clearTimeout(startDelay)
-  }, [hasSent, splashDone])
-
-  useEffect(() => {
-    if (!isTyping || hasSent) return
-    const fullText = 'what is drift?'
-    let currentIndex = 0
-
-    const typeInterval = setInterval(() => {
-      if (currentIndex < fullText.length) {
-        currentIndex = Math.min(fullText.length, currentIndex + 2)
-        setTypedText(fullText.slice(0, currentIndex))
-      } else {
-        setIsTyping(false)
-        setTimeout(() => handleSend(), 260)
-        clearInterval(typeInterval)
-      }
-    }, 46)
-
-    return () => clearInterval(typeInterval)
-  }, [isTyping, hasSent])
-
-  const handleSend = () => {
-    setHasSent(true)
-    setIsTyping(false)
-    setTimeout(() => {
-      if (contentRef.current) {
-        contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }, 220)
-  }
-
-  const chips = [
-    {
-      label: 'Tax Plan',
-      icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18M7 16l4-6 4 4 6-8" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Compliance Review',
-      icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Portfolio Audit',
-      icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8m0 0h-5m5 0v5" />
-        </svg>
-      ),
-    },
-    {
-      label: 'RMD Calendar',
-      icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Trust Document',
-      icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z" />
-        </svg>
-      ),
-    },
-  ]
-
   return (
-    <main>
-      <SplashScreen onDone={() => setSplashDone(true)} />
-      {/* Hero Section with Video */}
-      <section className="relative w-full h-screen overflow-hidden bg-black">
-        {/* TODO: needs content from human — add a poster image (e.g. /hero-poster.jpg)
-            and pass it as poster={...}. Today the section's bg-black is the only
-            fallback before the video buffers, on mobile data-saver, or where autoplay
-            is blocked. */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover bg-black"
-        >
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
-
-        <div className="absolute inset-0 bg-black/50" />
-
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6">
-          <div className="w-full max-w-3xl">
-            <div className="text-center mb-10">
-              <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-                DANTE
+    <main className="min-h-screen bg-black">
+      <section className="px-6 pt-40 pb-20 border-b border-white/[0.06]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-2.5 mb-8 text-[10px] tracking-[0.3em] uppercase text-gray-500">
+            <span className="w-1 h-1 rounded-full bg-[#E8E2D5]" />
+            <span>Drift AI</span>
+          </div>
+          <div className="grid lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8">
+              <h1 className="font-light text-white tracking-tight leading-[1.02] text-5xl md:text-7xl mb-8 max-w-[950px]">
+                Proactive AI for <em className="font-serif italic text-[#E8E2D5]">commercial real estate.</em>
               </h1>
-              <p className="text-[10px] tracking-[0.3em] text-gray-400 mt-2 uppercase">
-                by Drift
-              </p>
-              <p
-                className="mt-6 mx-auto text-[16px] md:text-[17px] leading-relaxed font-light"
-                style={{ color: '#8b8780', maxWidth: '540px' }}
-              >
-                AI agents for RIAs that draft compliance memos, surface tax-loss
-                opportunities, and{' '}
-                <em className="italic text-[#E8E2D5]/85">
-                  keep the human in the loop
-                </em>
-                .
+              <p className="text-lg md:text-2xl text-[#E8E2D5]/72 max-w-[760px] leading-relaxed font-light">
+                Drift is a CRE-smart reasoning and execution layer that analyzes sites and deals
+                like a senior expert, automates the repetitive work, and keeps transactions and
+                operations moving by voice, workflow, or text.
               </p>
             </div>
-
-            {/* v0-style input card */}
-            <div className="bg-black/60 backdrop-blur-xl rounded-3xl border border-white/15 p-5 mb-6">
-              <div className="min-h-[88px] text-lg text-gray-200 px-2 pt-1 pb-4">
-                {typedText ? (
-                  <span>
-                    {typedText}
-                    {isTyping && <span className="animate-pulse text-white">|</span>}
-                  </span>
-                ) : (
-                  <span className="text-gray-500">Ask DANTE a question...</span>
-                )}
-              </div>
-
-              <div className="flex items-center justify-between">
-                <button className="text-gray-400 hover:text-white transition p-2 rounded-full">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 10-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                  </svg>
-                </button>
-                <div className="flex items-center gap-2">
-                  <button className="text-gray-300 hover:text-white border border-dashed border-gray-600 rounded-full px-4 py-1.5 text-sm flex items-center gap-1.5 transition">
-                    <span className="text-base">+</span> Project
-                  </button>
-                  <button
-                    onClick={handleSend}
-                    className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-full p-2 transition"
-                  >
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                    </svg>
-                  </button>
+            <div className="lg:col-span-4 lg:pl-8">
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
+                <div className="text-[10px] tracking-[0.28em] uppercase text-gray-500 mb-4">
+                  What makes Drift different
                 </div>
+                <p className="text-sm text-[#E8E2D5]/78 font-light leading-relaxed">
+                  Most CRE tools give you more dashboards and more data. Drift tells you what the
+                  site means, what the deal is worth, what the risks are, and what to do next.
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Quick action chips */}
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {chips.map((chip) => (
-                <button
-                  key={chip.label}
-                  className="bg-black/40 backdrop-blur-sm hover:bg-black/60 border border-white/10 hover:border-white/30 rounded-full px-5 py-2.5 text-sm text-white/90 transition flex items-center gap-2"
-                >
-                  {chip.icon}
-                  {chip.label}
-                </button>
-              ))}
-            </div>
+          <div className="mt-12 flex flex-wrap gap-3">
+            <Link
+              href="/demo"
+              className="inline-flex items-center gap-2 bg-[#E8E2D5] text-black px-6 py-3 rounded-full text-sm font-semibold whitespace-nowrap hover:bg-white transition"
+            >
+              Book a demo
+              <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/product"
+              className="inline-flex items-center gap-2 border border-white/[0.14] text-white px-6 py-3 rounded-full text-sm font-semibold whitespace-nowrap hover:bg-white/[0.04] transition"
+            >
+              Explore product
+              <span aria-hidden>→</span>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* What Is — Typewriter Reveal */}
-      <div ref={contentRef}>
-        <TypewriterReveal />
-      </div>
+      <section className="px-6 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-8">
+            Who it&rsquo;s for
+          </div>
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-white/[0.06] bg-white/[0.06]">
+            {AUDIENCES.map((audience) => (
+              <div key={audience.name} className="bg-black p-8">
+                <h2 className="text-2xl font-light text-white tracking-tight mb-4">{audience.name}</h2>
+                <p className="text-sm text-[#E8E2D5]/72 font-light leading-relaxed">{audience.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* The Method — 4-step cascade */}
-      <MethodSteps />
+      <section className="px-6 py-20 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-4">
+              Core idea
+            </div>
+            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
+              The bottleneck is not data. It&rsquo;s turning data into decisions.
+            </h2>
+          </div>
+          <div className="md:col-span-8 space-y-6 text-base md:text-lg text-[#E8E2D5]/74 font-light leading-relaxed">
+            <p>
+              Commercial real estate already has parcel data, zoning records, comps, business
+              inventory, traffic, rent rolls, and operating statements. What teams do not have is
+              enough expert time to reason across all of it consistently.
+            </p>
+            <p>
+              Drift sits one layer above the data stack. It assembles the relevant evidence, runs
+              CRE-specific reasoning over it, and returns a structured verdict with the supporting
+              logic, sources, risks, and next actions.
+            </p>
+            <p>
+              That means faster site decisions, tighter diligence, more deals screened, and less
+              operator time spent stitching the work together by hand.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      {/* Different from the point tools */}
-      <CompetitivePositioning />
+      <section className="px-6 py-20 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-5">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-4">
+              How it works
+            </div>
+            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight mb-6">
+              From property or question to a usable recommendation.
+            </h2>
+            <p className="text-base md:text-lg text-[#E8E2D5]/72 font-light leading-relaxed">
+              A user gives Drift a property, deal, document, or request. Drift gathers the
+              necessary data, reasons over it with CRE-specific prompts, and returns a conclusion
+              that can be verified and acted on.
+            </p>
+          </div>
+          <div className="lg:col-span-7 space-y-4">
+            {[
+              ['1', 'Assemble the picture', 'Pull only the relevant structured data and documents needed for the task.'],
+              ['2', 'Reason like an expert', 'Evaluate the inputs the way a senior CRE analyst, broker, or operator would.'],
+              ['3', 'Show the verdict', 'Deliver a clear output with decision, rationale, risks, and citations.'],
+              ['4', 'Keep moving', 'Trigger next steps through automation, outreach, voice, or SMS.'],
+            ].map(([step, title, body]) => (
+              <div key={step} className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+                <div className="text-[10px] tracking-[0.25em] uppercase text-gray-500 mb-3">Step {step}</div>
+                <h3 className="text-xl font-light text-white tracking-tight mb-2">{title}</h3>
+                <p className="text-sm text-[#E8E2D5]/72 font-light leading-relaxed">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* Product Demos */}
-      <ProductDemos />
+      <section className="px-6 py-20 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-8">
+            Modules
+          </div>
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-white/[0.06] bg-white/[0.06]">
+            {MODULES.map((module) => (
+              <div key={module} className="bg-black p-7">
+                <div className="text-base md:text-lg text-white font-light tracking-tight">{module}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* Bento Grid */}
-      <BentoGrid />
+      <section className="px-6 py-20 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-4">
+              Trust foundation
+            </div>
+            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
+              Real-money decisions require real discipline.
+            </h2>
+          </div>
+          <div className="md:col-span-8">
+            <ul className="space-y-4">
+              {TRUST.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-base text-[#E8E2D5]/74 font-light leading-relaxed">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#E8E2D5]/55 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
-      {/* Integrations marquee */}
-      <IntegrationsMarquee />
-
-      {/* CTA + Footer */}
-      <DotFieldCTA />
+      <section className="px-6 pb-32 pt-16 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-3">
+              Signature strength
+            </div>
+            <h2 className="text-2xl md:text-3xl font-light text-white tracking-tight max-w-2xl">
+              Give Drift a property and an intended use, and it can move from question to
+              recommendation in minutes instead of weeks.
+            </h2>
+          </div>
+          <Link
+            href="/demo"
+            className="inline-flex items-center gap-2 bg-[#E8E2D5] text-black px-6 py-3 rounded-full text-sm font-semibold whitespace-nowrap hover:bg-white transition"
+          >
+            See it live
+            <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </section>
     </main>
   )
 }

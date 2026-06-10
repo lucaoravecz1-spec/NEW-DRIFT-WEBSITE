@@ -1,178 +1,66 @@
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const posts: Record<
-    string,
-    {
-      eyebrow: string
-      title: string
-      lede: string
-      date: string
-      readTime: string
-      sections: { title: string; body: string }[]
-    }
-  > = {
-    'why-the-back-office-is-the-bottleneck': {
-      eyebrow: 'Practice Management',
-      title: 'Why the back office is the bottleneck for every advisory firm.',
-      lede: 'A decade of stack expansion solved every problem except the one that mattered: the advisor still spends two days a week on work that has nothing to do with advice.',
-      date: 'April 28, 2026',
-      readTime: '11 min',
-      sections: [
-        {
-          title: 'The stack expanded. The work did not disappear.',
-          body: 'Every new system added visibility into one slice of the firm, but it also created another handoff. The advisor still has to gather records, interpret the household, draft the note, and queue the follow-up. The result is not a technology gap so much as a labor gap hidden inside the stack.',
-        },
-        {
-          title: 'Advisors became the integration layer.',
-          body: 'When the portfolio system, CRM, document vault, planning tool, and email history all disagree about context, the advisor is the person who resolves it. That is expensive work being done by the highest-value person in the workflow.',
-        },
-        {
-          title: 'The opportunity is operational, not theatrical.',
-          body: 'The useful AI product is not the clever chat surface. It is the system that reads, drafts, cites, queues, and waits for approval before breakfast. That is where hours return to the team and where household coverage scales without immediately adding headcount.',
-        },
-      ],
-    },
-    'retrieval-grounded-not-hallucinated': {
-      eyebrow: 'AI',
-      title: 'Retrieval-grounded, not hallucinated: how Drift cites every claim.',
-      lede: 'The line between a confident answer and a usable answer is evidence. Drift is built to retrieve source records first, then generate from the evidence it found.',
-      date: 'April 14, 2026',
-      readTime: '7 min',
-      sections: [
-        {
-          title: 'Grounding comes before generation.',
-          body: 'We treat source retrieval as a prerequisite, not a nice-to-have. The system pulls the household records, notes, statements, and policy documents that matter before it drafts a sentence. That keeps the answer anchored to what the firm actually knows.',
-        },
-        {
-          title: 'Citation is part of product design.',
-          body: 'If the reviewer cannot see where a claim came from, the answer is not ready. Evidence needs to be visible at the point of approval, not hidden in a debug console or left to the user to reconstruct after the fact.',
-        },
-        {
-          title: 'Confidence without provenance is a liability.',
-          body: 'In regulated work, a smooth answer that cannot be traced back to records is worse than no answer. Firms do not need better improvisation. They need better recall, traceability, and escalation when the record is incomplete.',
-        },
-      ],
-    },
-    'compliance-memo-at-the-moment-of-recommendation': {
-      eyebrow: 'Compliance',
-      title: 'The compliance memo, written at the moment of recommendation.',
-      lede: 'The memo is most valuable when it is created alongside the recommendation, while the evidence is still in view and the rationale has not drifted.',
-      date: 'March 30, 2026',
-      readTime: '6 min',
-      sections: [
-        {
-          title: 'After-the-fact memos create drag.',
-          body: 'When the advisory team has to reconstruct a recommendation after the conversation, quality drops and the review burden rises. Writing the memo at the same moment the recommendation is formed keeps the reasoning aligned with the evidence.',
-        },
-        {
-          title: 'Supervision gets easier when the trail is immediate.',
-          body: 'A contemporaneous memo links the recommendation, household context, and supporting records before anything is lost in translation. That makes spot checks and escalations cleaner for the supervising principal or compliance reviewer.',
-        },
-        {
-          title: 'The right workflow is draft first, approve second.',
-          body: 'Automation is useful when it creates a review-ready first pass, not when it bypasses judgment. A good system drafts the memo, cites the evidence, and waits for the person accountable to approve or edit it.',
-        },
-      ],
-    },
-    'what-soc2-actually-buys-you': {
-      eyebrow: 'Security',
-      title: 'What SOC 2 actually buys you (and what it doesn’t).',
-      lede: 'SOC 2 is a useful signal about control maturity, but it is not a substitute for understanding how a system behaves in your actual workflow.',
-      date: 'March 18, 2026',
-      readTime: '9 min',
-      sections: [
-        {
-          title: 'It shows process discipline.',
-          body: 'A clean SOC 2 report tells a buyer that access, change management, incident response, and related controls exist and are operating. That matters. It reduces uncertainty about basic operational hygiene.',
-        },
-        {
-          title: 'It does not answer workflow questions for you.',
-          body: 'A firm still needs to ask where data goes, who can approve actions, how outputs are grounded, and what the failure modes look like. Those product questions sit beside the report, not inside it.',
-        },
-        {
-          title: 'Buyers should pair controls with product diligence.',
-          body: 'The most effective diligence process uses both lenses: security maturity from the formal package and real operational understanding from product review. Neither is complete on its own.',
-        },
-      ],
-    },
-    'tax-loss-harvesting-the-quiet-hours': {
-      eyebrow: 'Tax',
-      title: 'Tax-loss harvesting in the quiet hours: a study in agent timing.',
-      lede: 'Some advisory work is valuable precisely because it can happen before anyone arrives. Tax-aware monitoring is one of the clearest examples.',
-      date: 'March 4, 2026',
-      readTime: '8 min',
-      sections: [
-        {
-          title: 'Timing is part of the workflow.',
-          body: 'The best tax-loss opportunities are not created by a dashboard alone. They depend on scanning consistently, checking for wash-sale conflicts, comparing replacements, and surfacing the result before the team starts its day.',
-        },
-        {
-          title: 'Agents are useful where vigilance matters.',
-          body: 'An agent can do the repetitive early work: scan accounts, flag candidate positions, gather policy context, and present a short approval queue. The human reviewer still decides whether the opportunity is real and worth acting on.',
-        },
-        {
-          title: 'Quiet-hour work changes morning capacity.',
-          body: 'When the prep is already assembled, the advisor starts with judgment instead of assembly. That changes how many households the team can cover without turning the workday into triage.',
-        },
-      ],
-    },
-  }
-
-  const fallbackTitle = params.slug
-    .split('-')
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ')
-  const post = posts[params.slug] ?? {
-    eyebrow: 'Writing',
-    title: fallbackTitle || 'Post',
-    lede: 'This note is part of the Drift writing archive. Full publication details will be added as the piece is finalized.',
-    date: 'May 3, 2026',
-    readTime: '5 min',
+const POSTS: Record<string, { title: string; lede: string; sections: string[] }> = {
+  'why-the-site-selection-stack-still-misses-the-answer': {
+    title: 'Why the site-selection stack still misses the answer.',
+    lede: 'The problem is not that CRE teams lack reports. It is that the final judgment still sits outside the tools.',
     sections: [
-      {
-        title: 'Draft in progress',
-        body: 'This route now resolves to a readable article page instead of a placeholder. If the post has not been fully authored yet, we still preserve the structure, metadata, and reading flow so the page remains usable.',
-      },
+      'Site-selection software is good at surfacing inputs and weak at delivering the decision. Teams still have to turn rankings, demographics, and traffic into an opinion a client can actually use.',
+      'That is where expert time disappears. The real labor is interpretation, not retrieval.',
+      'A useful AI layer in CRE needs to work one level higher: not another dashboard, but a conclusion with evidence, caveats, and a next step.',
     ],
+  },
+  'diligence-isnt-slow-because-people-are-bad': {
+    title: 'Diligence isn’t slow because people are bad at it.',
+    lede: 'It is slow because the work requires too many passes across too many files before anyone can confidently summarize the story.',
+    sections: [
+      'Lease abstraction, rent roll review, statement comparison, and exception logging are all necessary. What hurts is the amount of manual stitching between them.',
+      'When a system can read, compare, and flag across the document set, the human reviewer gets to spend their time on the actual judgment.',
+      'That is how diligence gets faster without becoming shallower.',
+    ],
+  },
+  'what-cre-teams-actually-need-from-ai': {
+    title: 'What CRE teams actually need from AI.',
+    lede: 'Not novelty. Not generic chat. They need a system that can help make expensive decisions and keep the follow-through from slipping.',
+    sections: [
+      'The winning product in CRE is not the flashiest interface. It is the one that saves senior time and lets teams cover more surface area without sacrificing trust.',
+      'That requires two things at once: better reasoning and better execution.',
+      'If the system cannot explain why it believes something, cite its inputs, and carry the next step forward, it will stay a toy.',
+    ],
+  },
+}
+
+export default function Page({ params }: { params: { slug: string } }) {
+  const post = POSTS[params.slug] ?? {
+    title: params.slug
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' '),
+    lede: 'A Drift note on CRE workflows and reasoning systems.',
+    sections: ['This page is part of the Drift writing archive.'],
   }
 
   return (
     <main className="min-h-screen bg-black">
-      <PageHero eyebrow={`Resources · ${post.eyebrow}`} headline={post.title} lede={post.lede} />
+      <PageHero eyebrow="Resources · Blog" headline={post.title} lede={post.lede} />
 
-      <section className="px-6 pb-8">
-        <div className="max-w-3xl mx-auto flex flex-wrap items-center gap-3 text-xs text-gray-500">
-          <span>{post.date}</span>
-          <span>&middot;</span>
-          <span>{post.readTime}</span>
+      <section className="px-6 py-20 border-t border-white/[0.06]">
+        <div className="max-w-3xl mx-auto space-y-8">
+          {post.sections.map((section) => (
+            <p key={section} className="text-base md:text-lg text-[#E8E2D5]/78 font-light leading-relaxed">
+              {section}
+            </p>
+          ))}
         </div>
       </section>
 
-      <article className="px-6 py-12 border-t border-white/[0.06]">
-        <div className="max-w-3xl mx-auto space-y-14">
-          {post.sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="text-2xl md:text-3xl font-light tracking-tight text-white mb-5">
-                {section.title}
-              </h2>
-              <p className="text-base md:text-lg text-[#E8E2D5]/78 font-light leading-relaxed">
-                {section.body}
-              </p>
-            </section>
-          ))}
-        </div>
-      </article>
-
-      <section className="px-6 pb-32 pt-16 border-t border-white/[0.06]">
-        <div className="max-w-6xl mx-auto flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <section className="px-6 pb-32 pt-12 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-3">
-              More writing
-            </div>
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-3">More writing</div>
             <h2 className="max-w-xl text-2xl md:text-3xl font-light tracking-tight text-white">
-              Continue through the archive or subscribe for the next note.
+              Back to the archive for more on CRE workflows, reasoning, and execution.
             </h2>
           </div>
           <Link
