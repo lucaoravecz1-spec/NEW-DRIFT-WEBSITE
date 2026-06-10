@@ -4,60 +4,60 @@ export default function Page() {
   return (
     <MarketingOverviewPage
       eyebrow="Resources"
-      headline={<>How Drift works, and where it fits in CRE.</>}
-      lede="The method, the use cases, the data sources, and the economic case for a reasoning and execution layer in commercial real estate."
+      headline={<>How Drift works, and why it matters.</>}
+      lede="The method, the customer stories, the controls, and the integration footprint. Everything an advisor, COO, or CCO needs before the first call."
       cards={[
         {
           title: 'Method',
-          body: 'How Drift assembles data, reasons across it, and returns a recommendation.',
+          body: 'A plain-language walkthrough of how Drift plugs into the firm and where approvals stay human.',
           href: '/method',
           label: 'Read the method',
         },
         {
           title: 'Customers',
-          body: 'Examples of how developers, brokers, and operators use Drift in practice.',
+          body: 'How firms use Drift to compress prep time and increase household coverage.',
           href: '/customers',
-          label: 'See examples',
+          label: 'Read customer stories',
         },
         {
-          title: 'ROI Model',
-          body: 'Frame the value against analyst time, deal volume, and avoided delay.',
-          href: '/roi',
-          label: 'Explore ROI',
+          title: 'Security',
+          body: 'SOC 2 posture, data handling, encryption, and operational controls.',
+          href: '/security',
+          label: 'Review security',
         },
         {
-          title: 'Integrations',
-          body: 'The data and workflow systems Drift can sit on top of today.',
-          href: '/integrations',
-          label: 'View integrations',
+          title: 'Blog',
+          body: 'Long-form writing on advisory operations, AI systems, and retrieval-grounded workflows.',
+          href: '/blog',
+          label: 'Read the blog',
         },
       ]}
       sections={[
         {
-          label: 'Positioning',
-          title: 'Drift is not another dashboard.',
-          body: 'The product lives one layer above raw data tools. It is there to turn evidence into a verdict and then keep the work moving.',
+          label: 'Evaluation',
+          title: 'Built for real diligence, not hand-waving.',
+          body: 'Firms evaluating Drift usually need more than a landing page. They need concrete answers about controls, implementation, and where the system stops.',
           points: [
-            'Built for teams making expensive decisions from fragmented inputs.',
-            'Structured for client-facing trust: citation, clarity, and missing-data honesty.',
-            'Flexible across development, brokerage, investment, and operations.',
+            'Clear separation between drafting, recommendation, and final human approval.',
+            'Integration pages that show where Drift connects without forcing a migration.',
+            'Resources written for operators, compliance teams, and working advisors.',
           ],
         },
         {
-          label: 'What to review',
-          title: 'Start with the workflow that matters most to your team.',
-          body: 'Every buyer comes in through a different entry point. Drift is modular enough to meet them there.',
+          label: 'Next steps',
+          title: 'Start with the angle that matters to your team.',
+          body: 'If the buyer is operations-led, begin with method and integrations. If the buyer is risk-led, start with security and compliance. If the buyer is advisor-led, go straight to demo and case studies.',
           points: [
-            'Developers usually start with site selection and feasibility.',
-            'Investors usually start with screening, underwriting, and diligence.',
-            'Operators usually start with tenant communication and follow-through.',
+            'Operations teams usually begin with `/method` and `/integrations`.',
+            'Risk and legal teams usually begin with `/security` and `/compliance`.',
+            'Growth-minded advisors usually begin with `/customers` and `/demo`.',
           ],
         },
       ]}
       cta={{
         eyebrow: 'Need the walkthrough',
-        title: 'We can tailor the conversation around development, brokerage, investment, or operations.',
-        label: 'Talk to Drift',
+        title: 'We can tailor the resource tour around operations, compliance, or advisor workflow.',
+        label: 'Talk to the team',
         href: '/contact',
       }}
     />

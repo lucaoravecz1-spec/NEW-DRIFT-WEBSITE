@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import MaturityBand from '@/components/MaturityBand'
 
 export const metadata: Metadata = {
-  title: 'Drift AI — CRE reasoning and execution',
-  description:
-    'Proactive AI for commercial real estate professionals. Analyze sites and deals, automate follow-through, and run Drift by voice, workflow, or text.',
+  title: 'Drift — Autonomous wealth intelligence',
+  description: 'Enterprise AI platform for financial advisors and wealth management firms.',
 }
 
 export default function RootLayout({
@@ -19,6 +19,7 @@ export default function RootLayout({
       <body className="bg-black text-white">
         <Nav />
         {children}
+        <MaturityBand />
         <Footer />
       </body>
     </html>

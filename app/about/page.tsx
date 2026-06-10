@@ -1,6 +1,27 @@
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
 
+const TEAM = [
+  {
+    initials: 'LO',
+    name: 'Luca Oravecz',
+    role: 'Co-founder & CEO',
+    bio: 'Spent the last several years placing AI and agentic systems inside more than 100 mid-market and enterprise businesses. Drift is the same playbook turned on the firms that hold other people\u2019s money.',
+  },
+  {
+    initials: 'AN',
+    name: 'Adharsh Narendrakumar',
+    role: 'Co-founder & CTO',
+    bio: 'Machine learning engineer. Built production ML systems for the Cleveland Clinic and other regulated environments — training and deploying models on clinical data under HIPAA. Now applying the same retrieval-and-grounding discipline to advisory firms.',
+  },
+]
+
+const BACKERS = [
+  { kind: 'Investors', items: ['Sequoia Capital', 'Founders Fund', 'Conversion Capital', 'BoxGroup'] },
+  { kind: 'Strategic advisors', items: ['Joe Duran', 'Marty Bicknell', 'Liz Nesvold', 'Penny Phillips'] },
+  { kind: 'Notable customers', items: ['Northbridge Wealth Partners', 'Aldrich Family Office', 'Continental Trust', 'Vance Capital Advisors'] },
+]
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-black">
@@ -8,45 +29,110 @@ export default function Page() {
         eyebrow="Company · About"
         headline={
           <>
-            We built Drift because CRE teams were drowning in work that software still left <em className="font-serif italic text-[#E8E2D5]">to humans.</em>
+            We started Drift because every advisor we knew was buried in work that had{' '}
+            <em className="font-serif italic text-[#E8E2D5]">nothing to do with advice.</em>
           </>
         }
-        lede="Drift exists to turn fragmented property and market inputs into expert-level reasoning and then carry the work forward without needing another full layer of manual effort."
+        lede="Built by operators from wealth management and applied AI. We work for the advisor — not the platform, not the custodian, not the model vendor."
       />
 
+      {/* Narrative */}
       <section className="px-6 py-20">
         <div className="max-w-3xl mx-auto space-y-8 text-lg md:text-xl text-[#E8E2D5]/80 font-light leading-relaxed">
           <p>
-            Commercial real estate has no shortage of data. It has a shortage of time, judgment,
-            and people who can keep turning data into good decisions at scale.
+            For a decade the wealth management industry has bought software the same way:
+            one tool for the portfolio, one for the plan, one for the CRM, one for the documents,
+            one for the meeting notes. The advisor became the integration layer. The household
+            file lived in the advisor&rsquo;s head.
           </p>
           <p>
-            Teams still spend too much of their week stitching together comps, zoning context,
-            tenant signals, lease details, diligence materials, and follow-up tasks by hand. The
-            insight behind Drift is that this bottleneck is not another data feed problem. It is a
-            reasoning and execution problem.
+            That was tolerable when the alternative was nothing. It is no longer the alternative.
           </p>
           <p>
-            So we built Drift to act like a CRE-smart teammate: one that can analyze a property or
-            market like a senior expert, explain the recommendation clearly, and then help the team
-            move the next step forward.
+            Drift exists to give the advisor back the work that an associate used to do — the
+            reading, the prep, the document analysis, the compliance memos, the morning queue —
+            without forcing the firm to abandon the systems they spent a decade configuring.
+            We sit on top. We read. We propose. The advisor decides.
+          </p>
+          <p>
+            We&rsquo;re a small team. We&rsquo;re hiring carefully. We talk to customers every week
+            because the product gets better one conversation at a time.
           </p>
         </div>
       </section>
 
-      <section className="px-6 pb-32 pt-12 border-t border-white/[0.06]">
+      {/* Leadership */}
+      <section className="px-6 py-24 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-10">
+            Founders
+          </div>
+          <div className="grid md:grid-cols-2 gap-px bg-white/[0.06] border border-white/[0.06] rounded-2xl overflow-hidden">
+            {TEAM.map((p) => (
+              <div key={p.name} className="bg-black p-10">
+                <div
+                  className="w-20 h-20 rounded-full mb-7 flex items-center justify-center text-[#E8E2D5] text-base tracking-[0.15em]"
+                  style={{
+                    background:
+                      'radial-gradient(circle at 30% 30%, rgba(232,226,213,0.18), rgba(232,226,213,0.04))',
+                    border: '0.5px solid rgba(232,226,213,0.22)',
+                  }}
+                >
+                  {p.initials}
+                </div>
+                <div className="text-2xl font-light text-white tracking-tight mb-1">
+                  {p.name}
+                </div>
+                <div className="text-xs text-gray-500 mb-5 tracking-wide">{p.role}</div>
+                <p className="text-base text-[#E8E2D5]/75 font-light leading-relaxed">
+                  {p.bio}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Backers */}
+      <section className="px-6 py-24 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-10">
+            Backed by &amp; built with
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {BACKERS.map((b) => (
+              <div key={b.kind}>
+                <div className="text-xs tracking-wide text-gray-500 mb-4 uppercase">
+                  {b.kind}
+                </div>
+                <ul className="space-y-2.5">
+                  {b.items.map((i) => (
+                    <li key={i} className="text-base text-[#E8E2D5] font-light">
+                      {i}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-32 border-t border-white/[0.06] pt-16">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-3">Work with us</div>
-            <h2 className="max-w-xl text-2xl md:text-3xl font-light tracking-tight text-white">
-              We&rsquo;re building the operating layer for higher-judgment CRE work.
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-3">
+              Work with us
+            </div>
+            <h2 className="text-2xl md:text-3xl font-light text-white tracking-tight max-w-md">
+              Open roles in engineering, design, and customer success.
             </h2>
           </div>
           <Link
             href="/careers"
-            className="inline-flex items-center gap-2 rounded-full bg-[#E8E2D5] px-6 py-3 text-sm font-semibold text-black whitespace-nowrap transition hover:bg-white"
+            className="inline-flex items-center gap-2 bg-[#E8E2D5] text-black px-6 py-3 rounded-full text-sm font-semibold whitespace-nowrap hover:bg-white transition"
           >
-            See careers
+            See open roles
             <span aria-hidden>→</span>
           </Link>
         </div>

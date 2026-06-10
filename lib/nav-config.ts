@@ -21,31 +21,31 @@ export const navConfig: NavItem[] = [
     label: 'Product',
     href: '/product',
     eyebrow: 'Product',
-    viewAllLabel: 'View the full product',
+    viewAllLabel: 'View all products',
     viewAllHref: '/product',
     children: [
       {
-        label: 'Reasoning',
+        label: 'Assistant',
         href: '/product/assistant',
-        desc: 'Expert-grade site, market, and deal analysis',
+        desc: "Daily co-pilot grounded in your firm's data",
         visual: 'assistant',
       },
       {
-        label: 'Diligence',
+        label: 'Vault',
         href: '/product/vault',
-        desc: 'Document review, risk extraction, and synthesis',
+        desc: 'Document analysis at scale',
         visual: 'vault',
       },
       {
-        label: 'Operations',
+        label: 'Agents',
         href: '/product/agents',
-        desc: 'Tenant, task, and workflow automation',
+        desc: 'Always-on planning workflows',
         visual: 'agents',
       },
       {
-        label: 'Agentic Layer',
+        label: 'Compliance',
         href: '/product/compliance',
-        desc: 'Voice, SMS, and proactive execution',
+        desc: 'Regulatory review built in',
         visual: 'compliance',
       },
     ],
@@ -58,10 +58,11 @@ export const navConfig: NavItem[] = [
     viewAllHref: '/resources',
     children: [
       { label: 'Method', href: '/method', desc: 'How Drift works', visual: 'method' },
-      { label: 'Customers', href: '/customers', desc: 'Teams using Drift in CRE', visual: 'customers' },
-      { label: 'ROI Model', href: '/roi', desc: 'Measure analyst and time savings', visual: 'roi' },
-      { label: 'Integrations', href: '/integrations', desc: 'Data sources and workflow systems', visual: 'integrations' },
-      { label: 'Blog', href: '/blog', desc: 'Writing on CRE and AI', visual: 'blog' },
+      { label: 'Customers', href: '/customers', desc: 'Case studies and stories', visual: 'customers' },
+      { label: 'ROI Calculator', href: '/roi', desc: "Estimate your firm's value", visual: 'roi' },
+      { label: 'Security', href: '/security', desc: 'SOC 2, encryption, data handling', visual: 'security' },
+      { label: 'Integrations', href: '/integrations', desc: 'Custodians, CRMs, planning', visual: 'integrations' },
+      { label: 'Blog', href: '/blog', desc: 'Writing on AI and wealth management', visual: 'blog' },
     ],
   },
   {
@@ -71,19 +72,19 @@ export const navConfig: NavItem[] = [
     viewAllLabel: 'About Drift',
     viewAllHref: '/about',
     children: [
-      { label: 'About', href: '/about', desc: 'Why we built Drift for CRE', visual: 'about' },
-      { label: 'Careers', href: '/careers', desc: 'Join the team', visual: 'careers' },
-      { label: 'Contact', href: '/contact', desc: 'Talk to sales or partnerships', visual: 'contact' },
+      { label: 'About', href: '/about', desc: 'Who we are and why we built Drift', visual: 'about' },
+      { label: 'Careers', href: '/careers', desc: 'Open roles across the team', visual: 'careers' },
+      { label: 'Contact', href: '/contact', desc: 'Talk to sales or support', visual: 'contact' },
     ],
   },
 ]
 
 export const footerConfig = {
   product: [
-    { label: 'Reasoning', href: '/product/assistant' },
-    { label: 'Diligence', href: '/product/vault' },
-    { label: 'Operations', href: '/product/agents' },
-    { label: 'Agentic Layer', href: '/product/compliance' },
+    { label: 'Assistant', href: '/product/assistant' },
+    { label: 'Vault', href: '/product/vault' },
+    { label: 'Agents', href: '/product/agents' },
+    { label: 'Compliance', href: '/product/compliance' },
     { label: 'Pricing', href: '/pricing' },
   ],
   company: [
@@ -94,8 +95,8 @@ export const footerConfig = {
   resources: [
     { label: 'Method', href: '/method' },
     { label: 'Customers', href: '/customers' },
-    { label: 'ROI Model', href: '/roi' },
-    { label: 'Integrations', href: '/integrations' },
+    { label: 'ROI Calculator', href: '/roi' },
+    { label: 'Security', href: '/security' },
     { label: 'Blog', href: '/blog' },
   ],
   legal: [
