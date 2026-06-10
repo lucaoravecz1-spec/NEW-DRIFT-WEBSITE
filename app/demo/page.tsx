@@ -15,7 +15,7 @@ export default function Page() {
         },
         {
           title: 'During the demo',
-          body: 'We show prep, messaging, document analysis, and approvals running on one household thread.',
+          body: 'We show prep, messaging, document analysis, and approvals running on one property thread.',
           href: '/product',
           label: 'Preview the product',
         },
@@ -39,7 +39,7 @@ export default function Page() {
           body: 'The goal is not a polished product tour. It is to see whether Drift changes the economics of the workflows your team already carries.',
           points: [
             'How Drift reads CRM, custodial, planning, and document context without a re-platform.',
-            'How an advisor or operator approves, edits, or rejects recommendations in the loop.',
+            'How a CRE professional or operator approves, edits, or rejects recommendations in the loop.',
             'Where firms usually start: prep, drafts, document review, or tax-aware monitoring.',
           ],
         },
@@ -49,7 +49,7 @@ export default function Page() {
           body: 'Bring one high-friction process and one real operating constraint. That is enough to see whether Drift is a fit.',
           points: [
             'Examples: annual review prep, compliance memo drafting, concentrated position monitoring.',
-            'We can adapt for solo RIAs, multi-advisor firms, and bank-affiliated wealth teams.',
+            'We can adapt for independent CRE firms, multi-office CRE firms, and institutional real estate teams.',
             'A strong first pilot is usually narrow, measurable, and easy to approve internally.',
           ],
         },

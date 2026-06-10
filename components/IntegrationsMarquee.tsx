@@ -9,29 +9,29 @@ const LIVE_ROW_ONE: string[] = []
 const LIVE_ROW_TWO: string[] = []
 
 const ROADMAP_ROW_ONE = [
-  'Schwab',
-  'Fidelity',
-  'Pershing',
-  'Altruist',
-  'BNY Mellon',
-  'Goldman Sachs',
-  'JP Morgan',
-  'TD Ameritrade',
-  'Interactive Brokers',
-  'Apex',
+  'CoStar',
+  'Crexi',
+  'Reonomy',
+  'Placer.ai',
+  'Esri',
+  'LightBox',
+  'CompStak',
+  'Cherre',
+  'Yardi',
+  'MRI',
 ]
 
 const ROADMAP_ROW_TWO = [
-  'Addepar',
-  'Orion',
-  'Black Diamond',
-  'Tamarac',
-  'Redtail',
-  'Wealthbox',
+  'Juniper Square',
+  'Dealpath',
+  'VTS',
+  'AppFolio',
+  'Buildout',
+  'RealPage',
   'Salesforce',
-  'eMoney',
-  'MoneyGuide Pro',
-  'RightCapital',
+  'HubSpot',
+  'Microsoft Dynamics',
+  'Airtable',
 ]
 
 const ROADMAP_ROW_THREE = [
@@ -78,8 +78,8 @@ export default function IntegrationsMarquee() {
           Already in your stack.
         </h2>
         <p className="mt-6 text-base md:text-lg text-[#E8E2D5]/60 max-w-xl font-light leading-relaxed">
-          Drift sits on top of the tools your firm already runs — custodians,
-          portfolio systems, planning software, document vaults, and the calendar.
+          Drift sits on top of the tools your firm already runs — property data,
+          deal systems, CRMs, document vaults, and the calendar.
         </p>
       </div>
 

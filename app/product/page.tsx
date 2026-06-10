@@ -9,7 +9,7 @@ export default function Page() {
       cards={[
         {
           title: 'Assistant',
-          body: 'A firm-grounded interface for prep, answers, and follow-through on live households.',
+          body: 'A firm-grounded interface for prep, answers, and follow-through on live properties and deals.',
           href: '/product/assistant',
           label: 'See Assistant',
         },
@@ -38,7 +38,7 @@ export default function Page() {
           title: 'One model, four working surfaces.',
           body: 'The advisor does not need another app for every task. Drift connects to the current stack, builds a living context model, and exposes that model in the right place for the job.',
           points: [
-            'Shared household memory across meetings, messages, portfolios, and documents.',
+            'Shared property and deal memory across meetings, messages, portfolios, and documents.',
             'Grounded retrieval so every answer can cite source records and timestamps.',
             'Human approval gates before anything reaches a client, custodian, or archive.',
           ],
@@ -49,7 +49,7 @@ export default function Page() {
           body: 'Instead of making advisors act as the integration layer, Drift prepares the work before the conversation starts and leaves a clean trail after it ends.',
           points: [
             'Prep packets assembled overnight from CRM, documents, and account changes.',
-            'Drafted replies and memos tied to the exact household context they reference.',
+            'Drafted replies and memos tied to the exact property and deal context they reference.',
             'A single review queue for recommendations, approvals, and exceptions.',
           ],
         },

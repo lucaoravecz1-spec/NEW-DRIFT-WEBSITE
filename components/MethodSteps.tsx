@@ -12,22 +12,22 @@ const STEPS: Step[] = [
   {
     number: '01',
     title: 'We meet your stack.',
-    body: 'Drift connects to your custodian, CRM, planning tools, and document vault in days, not quarters. No data migration. No re-platforming. We meet the firm where it lives.',
+    body: 'Drift connects to your property data, CRM, deal files, and document systems in days, not quarters. No data migration. No re-platforming. We meet the firm where it lives.',
   },
   {
     number: '02',
     title: 'A living model of your firm.',
-    body: 'Every meeting note, statement, trust document, and email thread becomes context. The model is not generic — it is your firm, encoded. It compounds with every conversation.',
+    body: 'Every property, lease, underwriting file, meeting note, and email thread becomes context. The model is not generic — it is your firm, encoded. It compounds with every deal.',
   },
   {
     number: '03',
     title: 'Agents do the work, not the talking.',
-    body: 'Drift runs in the background — drafting compliance memos, scanning for tax-loss opportunities, queuing RMDs, surfacing concentrated positions before they become problems.',
+    body: 'Drift runs in the background — screening sites, reviewing leases, drafting investment memos, and surfacing deal risks before they become expensive problems.',
   },
   {
     number: '04',
     title: 'Every decision is yours.',
-    body: 'Drift drafts. You approve. Every action is logged, sourced, and auditable. The agent never sends, trades, or files without explicit human consent. The loop ends with you.',
+    body: 'Drift drafts. You approve. Every action is logged, sourced, and auditable. The agent never sends, commits, or files without explicit human consent. The loop ends with you.',
   },
 ]
 

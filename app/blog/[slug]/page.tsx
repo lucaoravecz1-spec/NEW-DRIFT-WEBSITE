@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         },
         {
           title: 'The opportunity is operational, not theatrical.',
-          body: 'The useful AI product is not the clever chat surface. It is the system that reads, drafts, cites, queues, and waits for approval before breakfast. That is where hours return to the team and where household coverage scales without immediately adding headcount.',
+          body: 'The useful AI product is not the clever chat surface. It is the system that reads, drafts, cites, queues, and waits for approval before breakfast. That is where hours return to the team and where deal coverage scales without immediately adding headcount.',
         },
       ],
     },
@@ -68,7 +68,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         },
         {
           title: 'Supervision gets easier when the trail is immediate.',
-          body: 'A contemporaneous memo links the recommendation, household context, and supporting records before anything is lost in translation. That makes spot checks and escalations cleaner for the supervising principal or compliance reviewer.',
+          body: 'A contemporaneous memo links the recommendation, property and deal context, and supporting records before anything is lost in translation. That makes spot checks and escalations cleaner for the supervising principal or compliance reviewer.',
         },
         {
           title: 'The right workflow is draft first, approve second.',

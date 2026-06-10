@@ -40,7 +40,7 @@ const ROLES = {
     { title: 'Brand Designer', loc: 'New York' },
   ],
   'Sales & GTM': [
-    { title: 'Account Executive, Mid-Market RIA', loc: 'New York / Charlotte / Chicago' },
+    { title: 'Account Executive, Commercial Real Estate', loc: 'New York / Charlotte / Chicago' },
     { title: 'Account Executive, Enterprise', loc: 'New York / Remote-US' },
     { title: 'Sales Engineer', loc: 'New York / Remote-US' },
   ],

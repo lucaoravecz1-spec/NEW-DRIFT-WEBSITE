@@ -5,13 +5,13 @@ const STEPS = [
   {
     n: '01',
     title: 'Connect',
-    body: 'Read-only links to your custodians, portfolio accounting, planning software, CRM, and document store. Drift never asks for write access to systems of record.',
+    body: 'Read-only links to your property data sources, portfolio accounting, planning software, CRM, and document store. Drift never asks for write access to systems of record.',
     detail: 'Schwab · Fidelity · Pershing · Altruist · Addepar · Orion · Black Diamond · Redtail · Wealthbox · Salesforce · eMoney · MoneyGuide · DocuSign · Google · Microsoft',
   },
   {
     n: '02',
     title: 'Index',
-    body: 'A semantic graph of every household — accounts, positions, beneficiaries, trust structures, planning assumptions, and the documents that back each one.',
+    body: 'A semantic graph of every property and deal — accounts, positions, beneficiaries, trust structures, planning assumptions, and the documents that back each one.',
     detail: 'Updated continuously. Versioned. Diffable. Every edge in the graph traceable to a source document and timestamp.',
   },
   {
@@ -50,7 +50,7 @@ export default function Page() {
             How Drift <em className="font-serif italic text-[#E8E2D5]">thinks.</em>
           </>
         }
-        lede="Six steps from your firm's data to an advisor signing off on the work. Nothing improvised. Nothing unsourced."
+        lede="Six steps from your firm's data to an team signing off on the work. Nothing improvised. Nothing unsourced."
       />
 
       <section className="px-6 py-24">

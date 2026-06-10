@@ -161,7 +161,7 @@ export default function Page() {
               Download the full security overview.
             </h2>
             <p className="text-sm text-gray-500 mt-3 max-w-md">
-              SOC 2 report, sub-processor list, DPA, and standard responses to RIA and bank security questionnaires.
+              SOC 2 report, sub-processor list, DPA, and standard responses to CRE firm and institutional security questionnaires.
             </p>
           </div>
           <Link

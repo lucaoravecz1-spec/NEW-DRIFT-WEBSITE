@@ -15,7 +15,7 @@ export default function Page() {
         },
         {
           title: 'Customers',
-          body: 'How firms use Drift to compress prep time and increase household coverage.',
+          body: 'How firms use Drift to compress prep time and increase deal coverage.',
           href: '/customers',
           label: 'Read customer stories',
         },

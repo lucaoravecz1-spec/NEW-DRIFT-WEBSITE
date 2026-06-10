@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import MaturityBand from '@/components/MaturityBand'
 
 export const metadata: Metadata = {
-  title: 'Drift — Autonomous wealth intelligence',
-  description: 'Enterprise AI platform for financial advisors and wealth management firms.',
+  title: 'Drift — Commercial real estate intelligence',
+  description: 'Proactive AI reasoning and execution for commercial real estate professionals.',
 }
 
 export default function RootLayout({

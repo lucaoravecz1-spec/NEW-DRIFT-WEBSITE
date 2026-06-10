@@ -12,7 +12,7 @@ const ASKS = [
   },
   {
     cat: 'Portfolio check',
-    q: 'Show me every household over 35% in concentrated single-name stock. Sort by gain percentage.',
+    q: 'Show me every property and deal over 35% in concentrated single-name stock. Sort by gain percentage.',
   },
   {
     cat: 'Client comms',
@@ -31,7 +31,7 @@ const PRINCIPLES = [
   },
   {
     h: 'Waits for approval',
-    b: 'Drafted communications and recommendations sit in the morning queue. Nothing leaves the firm without an advisor signing off.',
+    b: 'Drafted communications and recommendations sit in the morning queue. Nothing leaves the firm without an team signing off.',
   },
 ]
 

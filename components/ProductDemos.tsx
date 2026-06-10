@@ -11,18 +11,18 @@ type Demo = {
 const DEMOS: Demo[] = [
   {
     tag: 'DANTE — the assistant',
-    title: 'Ask the firm a question.',
-    body: 'DANTE reads your custodial data, planning models, and document vault in real time. Every answer is sourced, traceable, and auditable.',
+    title: 'Ask the property a question.',
+    body: 'DANTE reads your property data, deal files, and document vault in real time. Every answer is sourced, traceable, and auditable.',
   },
   {
     tag: 'MESSAGES',
     title: 'Drafts replies. You approve.',
-    body: "Inbound texts and emails arrive with a drafted response — grounded in the client's plan, household, and prior conversations. One tap to send.",
+    body: "Inbound texts and emails arrive with a drafted response — grounded in the property, deal, and prior conversations. One tap to send.",
   },
   {
-    tag: 'TREASURY',
-    title: 'Overnight tax-loss scans.',
-    body: 'While you sleep, agents sweep every taxable account for harvest opportunities and queue them for your morning review.',
+    tag: 'DEAL SCREENING',
+    title: 'Overnight opportunity scans.',
+    body: 'While you sleep, agents screen new properties, surface risks and opportunities, and queue them for your morning review.',
   },
 ]
 
@@ -116,45 +116,45 @@ function DanteQueryDemo() {
 
       <div className="text-[#E8E2D5]/90 mb-5 leading-relaxed">
         <span className="text-gray-600">{'> '}</span>
-        What is the concentration risk on the Henderson trust?
+        Does the Henderson retail site support a drive-thru concept?
       </div>
 
       <div className="space-y-2 mb-5">
         <div className="flex items-center gap-2 text-xs text-gray-500">
           <div className="w-1 h-1 rounded-full bg-white/40" />
           <span>read</span>
-          <span className="text-gray-600">portfolios.henderson_trust.holdings</span>
+          <span className="text-gray-600">properties.henderson_site.trade_area</span>
         </div>
         <div className="flex items-center gap-2 text-xs text-gray-500">
           <div className="w-1 h-1 rounded-full bg-white/40" />
           <span>compute</span>
-          <span className="text-gray-600">sector_exposure(method=hhi)</span>
+          <span className="text-gray-600">competition.saturation(radius=10min)</span>
         </div>
         <div className="flex items-center gap-2 text-xs text-gray-500">
           <div className="w-1 h-1 rounded-full bg-white/40" />
           <span>cross-ref</span>
-          <span className="text-gray-600">ips.henderson.target_allocation</span>
+          <span className="text-gray-600">zoning.henderson.permitted_uses</span>
         </div>
       </div>
 
       <div className="text-[#E8E2D5] leading-relaxed text-sm">
-        Tech allocation is <span className="text-white font-semibold">34.2%</span>{' '}
-        — <span className="text-white">9.2 pts</span> above the IPS target of 25%.
+        The site is a <span className="text-white font-semibold">strong fit</span>{' '}
+        — demand is high and direct competition is limited within ten minutes.
         <br />
         <br />
-        Top concentrated positions:
+        Key decision signals:
         <div className="mt-2 space-y-1 text-xs text-gray-400">
           <div className="flex justify-between">
-            <span>NVDA</span>
-            <span className="text-white">8.2%</span>
+            <span>TRAFFIC</span>
+            <span className="text-white">32.4k/day</span>
           </div>
           <div className="flex justify-between">
-            <span>MSFT</span>
-            <span className="text-white">6.4%</span>
+            <span>COMPETITORS</span>
+            <span className="text-white">2 nearby</span>
           </div>
           <div className="flex justify-between">
-            <span>AAPL</span>
-            <span className="text-white">5.1%</span>
+            <span>VERDICT</span>
+            <span className="text-white">ADVANCE</span>
           </div>
         </div>
       </div>
@@ -167,9 +167,9 @@ function SmsThreadDemo() {
     <div className="rounded-2xl bg-[#0a0a0a] border border-white/10 p-5 shadow-2xl">
       <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/5">
         <div>
-          <div className="text-sm text-white font-medium">Margaret Chen</div>
+          <div className="text-sm text-white font-medium">Alex Morgan</div>
           <div className="text-[10px] tracking-[0.2em] text-gray-500 mt-0.5">
-            CLIENT · 11:42 AM
+            TENANT · 11:42 AM
           </div>
         </div>
         <div className="text-[10px] tracking-[0.2em] text-gray-600">SMS</div>
@@ -178,7 +178,7 @@ function SmsThreadDemo() {
       <div className="space-y-3">
         <div className="flex">
           <div className="bg-white/5 border border-white/5 rounded-2xl rounded-tl-md px-4 py-2.5 max-w-[85%] text-sm text-[#E8E2D5]">
-            Quick question — can I pull $50k from my IRA for the kitchen reno without penalty?
+            Can we move the renewal walkthrough to Thursday morning?
           </div>
         </div>
 
@@ -188,9 +188,8 @@ function SmsThreadDemo() {
 
         <div className="flex justify-end">
           <div className="bg-white/[0.07] border border-white/15 rounded-2xl rounded-tr-md px-4 py-2.5 max-w-[85%] text-sm text-white">
-            You&apos;re 58, so the 10% early-withdrawal penalty applies. We can structure
-            this as a 72(t) series or pull from the after-tax brokerage instead —
-            saves you about $5,000. Worth a quick call?
+            Thursday at 9:30 AM works for the property team. I&apos;ve held the slot
+            and attached the open maintenance items for review. Should I confirm?
           </div>
         </div>
 
@@ -209,10 +208,10 @@ function SmsThreadDemo() {
 
 function TlhDashboardDemo() {
   const ops = [
-    { ticker: 'VTI', loss: '$18,400', replacement: 'ITOT' },
-    { ticker: 'QQQ', loss: '$12,100', replacement: 'VGT' },
-    { ticker: 'IWM', loss: '$9,800', replacement: 'IJR' },
-    { ticker: 'EFA', loss: '$6,900', replacement: 'IEFA' },
+    { ticker: 'SITE-14', loss: '92 score', replacement: 'Advance' },
+    { ticker: 'SITE-08', loss: '87 score', replacement: 'Review' },
+    { ticker: 'SITE-21', loss: '81 score', replacement: 'Review' },
+    { ticker: 'SITE-03', loss: '64 score', replacement: 'Pass' },
   ]
   return (
     <div className="rounded-2xl bg-[#0a0a0a] border border-white/10 p-6 shadow-2xl">
@@ -230,19 +229,19 @@ function TlhDashboardDemo() {
         <div>
           <div className="text-2xl text-white font-light">12</div>
           <div className="text-[10px] tracking-[0.2em] text-gray-500 mt-1">
-            ACCOUNTS
+            PROPERTIES
           </div>
         </div>
         <div>
           <div className="text-2xl text-white font-light">4</div>
           <div className="text-[10px] tracking-[0.2em] text-gray-500 mt-1">
-            OPPORTUNITIES
+            SHORTLISTED
           </div>
         </div>
         <div>
-          <div className="text-2xl text-white font-light">$47.2k</div>
+          <div className="text-2xl text-white font-light">92</div>
           <div className="text-[10px] tracking-[0.2em] text-gray-500 mt-1">
-            HARVESTABLE
+            TOP SCORE
           </div>
         </div>
       </div>

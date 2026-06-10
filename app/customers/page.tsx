@@ -45,7 +45,7 @@ const CASES = [
     problem:
       'Tax-loss harvesting and Roth conversion windows were tracked in spreadsheets — and missed often enough to matter.',
     outcome:
-      'Always-on planning agents surface every opportunity in the morning queue. The advisor decides; Drift handles the surfacing.',
+      'Always-on planning agents surface every opportunity in the morning queue. The team decides; Drift handles the surfacing.',
     metric: { value: '$2.1M', label: 'incremental client value, year one' },
   },
 ]
@@ -60,7 +60,7 @@ export default function Page() {
             The firms that <em className="font-serif italic text-[#E8E2D5]">already run</em> on Drift.
           </>
         }
-        lede="Independent RIAs, multi-family offices, and bank trust departments. From $200M to $40B in assets under advisement."
+        lede="Independent CRE firms, multi-family offices, and bank trust departments. From $200M to $40B in assets under advisement."
       />
 
       {/* Featured */}

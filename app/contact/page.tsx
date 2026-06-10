@@ -58,7 +58,7 @@ export default function Page() {
               </div>
 
               <div>
-                <Label>Primary custodian</Label>
+                <Label>Primary data system</Label>
                 <div className="flex flex-wrap gap-2">
                   {CUSTODIAN.map((c) => (
                     <Chip key={c} name="custodian" label={c} />

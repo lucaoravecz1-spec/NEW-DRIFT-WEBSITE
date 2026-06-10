@@ -12,7 +12,7 @@ const TIERS = [
     cta: { label: 'Start a pilot', href: '/demo' },
     features: [
       'Assistant, Vault, Agents, Compliance',
-      'Up to 5 custodian connections',
+      'Up to 5 data-source connections',
       'Up to 10,000 documents indexed',
       '4 standard agents enabled',
       'Email support, 24-hour SLA',
@@ -21,7 +21,7 @@ const TIERS = [
   },
   {
     name: 'Mid-market',
-    tag: 'Most RIAs',
+    tag: 'Most CRE firms',
     range: '$250M – $5B AUM',
     price: '$1,200',
     cadence: 'per advisor / month',
@@ -30,7 +30,7 @@ const TIERS = [
     cta: { label: 'Book a demo', href: '/demo' },
     features: [
       'Everything in Independent',
-      'Unlimited custodian connections',
+      'Unlimited data-source connections',
       'Up to 100,000 documents indexed',
       'Full agent catalog + 2 custom',
       'Slack channel + named CSM',
@@ -77,8 +77,8 @@ const FAQ = [
     a: 'Annual or multi-year. Mid-market and Enterprise customers get a signed DPA, sub-processor list, and our SOC 2 Type II report under NDA.',
   },
   {
-    q: 'Can we use Drift on a subset of households first?',
-    a: 'Yes. Most firms start with one segment — a single advisor, a household tier, or a specific workflow — before rolling out firm-wide.',
+    q: 'Can we use Drift on a subset of properties first?',
+    a: 'Yes. Most firms start with one segment — a single advisor, a property segment, or a specific workflow — before rolling out firm-wide.',
   },
   {
     q: 'Do you train models on our data?',

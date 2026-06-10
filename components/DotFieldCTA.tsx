@@ -9,14 +9,14 @@ const WAVE_DELAY_MS = 52
 const PROMPT_INTERVAL = 3800
 
 const PROMPTS = [
-  'automate compliance memos for the Henderson trust...',
-  'find tax-loss opportunities across all taxable accounts...',
-  "brief me on tomorrow's meetings...",
-  'draft replies to overnight client emails...',
+  'analyze the Henderson site for a drive-thru concept...',
+  'screen new off-market opportunities...',
+  "brief me on tomorrow's property meetings...",
+  'draft replies to overnight tenant emails...',
 ]
 
-const FIRM_SIZES = ['Under $100M', '$100M – $1B', '$1B – $10B', 'Over $10B']
-const CUSTODIANS = ['Schwab', 'Fidelity', 'Pershing', 'Altruist', 'Other']
+const FIRM_SIZES = ['1–10 people', '11–50 people', '51–200 people', '200+ people']
+const CUSTODIANS = ['Developer', 'Brokerage', 'Investor', 'Owner / Operator', 'Other']
 
 export default function DotFieldCTA() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -119,7 +119,7 @@ export default function DotFieldCTA() {
             START NOW
           </div>
           <h2 className="text-3xl md:text-5xl font-light text-white leading-tight tracking-tight">
-            See Drift on your firm.
+            See Drift on your properties.
           </h2>
         </div>
 
@@ -163,7 +163,7 @@ export default function DotFieldCTA() {
                 }}
               />
               <PillSelect
-                label="Custodian"
+                label="CRE focus"
                 value={custodian}
                 options={CUSTODIANS}
                 open={openMenu === 'custodian'}

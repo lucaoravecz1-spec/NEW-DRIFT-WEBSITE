@@ -168,7 +168,7 @@ export default function Page() {
             How approval works
           </div>
           <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight mb-12 max-w-2xl">
-            The advisor stays in the loop. Always.
+            The professional stays in the loop. Always.
           </h2>
 
           <ol className="grid sm:grid-cols-4 gap-px bg-white/[0.06] border border-white/[0.06] rounded-2xl overflow-hidden">

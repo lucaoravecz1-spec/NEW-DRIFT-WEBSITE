@@ -25,7 +25,7 @@ export default function Page() {
           title: 'Advisory and supervisory posture',
           body: 'Drift supports the creation of drafts, analyses, and review queues. The system is not a substitute for supervision, suitability review, or final firm approval.',
           bullets: [
-            'Recommendations should be reviewed against household context and firm policy.',
+            'Recommendations should be reviewed against property and deal context and firm policy.',
             'Client-facing communications remain subject to the customer’s approval process.',
           ],
         },

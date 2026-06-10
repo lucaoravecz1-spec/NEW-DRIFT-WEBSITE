@@ -22,15 +22,15 @@ const BLOCKS: Block[] = [
     segments: [
       { text: 'Drift', emphasis: 'key' },
       { text: ' is building ', emphasis: 'body' },
-      { text: 'autonomous wealth intelligence', emphasis: 'key' },
-      { text: ' for the next generation of financial advisors.', emphasis: 'body' },
+      { text: 'commercial real estate intelligence', emphasis: 'key' },
+      { text: ' for the teams making high-stakes property decisions.', emphasis: 'body' },
     ],
   },
   {
     variant: 'note',
     segments: [
       {
-        text: "DANTE — Drift's wealth ops assistant — reads documents, runs workflows, and stands watch on compliance.",
+        text: "DANTE — Drift's CRE-smart assistant — analyzes properties, reads documents, and keeps deals moving.",
         emphasis: 'muted',
       },
     ],
@@ -39,7 +39,7 @@ const BLOCKS: Block[] = [
     variant: 'quote',
     segments: [
       { text: 'Not a chatbot. Not a copilot. ', emphasis: 'body' },
-      { text: 'An advisor that never sleeps.', emphasis: 'key' },
+      { text: 'A CRE expert that never sleeps.', emphasis: 'key' },
     ],
   },
   {
@@ -47,14 +47,14 @@ const BLOCKS: Block[] = [
     segments: [
       { text: 'The result:', emphasis: 'key' },
       {
-        text: ' advisors who serve more clients, with deeper insight, in less time.',
+        text: ' teams that screen more deals, reach better conclusions, and move faster.',
         emphasis: 'body',
       },
     ],
   },
   {
     variant: 'closing',
-    segments: [{ text: 'Wealth management has been waiting for this.', emphasis: 'muted' }],
+    segments: [{ text: 'Commercial real estate has been waiting for this.', emphasis: 'muted' }],
   },
 ]
 

@@ -33,14 +33,14 @@ export default function Page() {
             <em className="font-serif italic text-[#E8E2D5]">nothing to do with advice.</em>
           </>
         }
-        lede="Built by operators from wealth management and applied AI. We work for the advisor — not the platform, not the custodian, not the model vendor."
+        lede="Built by operators from commercial real estate and applied AI. We work for the advisor — not the platform, not the custodian, not the model vendor."
       />
 
       {/* Narrative */}
       <section className="px-6 py-20">
         <div className="max-w-3xl mx-auto space-y-8 text-lg md:text-xl text-[#E8E2D5]/80 font-light leading-relaxed">
           <p>
-            For a decade the wealth management industry has bought software the same way:
+            For a decade the commercial real estate industry has bought software the same way:
             one tool for the portfolio, one for the plan, one for the CRM, one for the documents,
             one for the meeting notes. The advisor became the integration layer. The household
             file lived in the advisor&rsquo;s head.
@@ -52,7 +52,7 @@ export default function Page() {
             Drift exists to give the advisor back the work that an associate used to do — the
             reading, the prep, the document analysis, the compliance memos, the morning queue —
             without forcing the firm to abandon the systems they spent a decade configuring.
-            We sit on top. We read. We propose. The advisor decides.
+            We sit on top. We read. We propose. The team decides.
           </p>
           <p>
             We&rsquo;re a small team. We&rsquo;re hiring carefully. We talk to customers every week

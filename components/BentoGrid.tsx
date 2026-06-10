@@ -12,44 +12,44 @@ type Cell = {
 
 const CELLS: Cell[] = [
   {
-    tag: 'COMPLIANCE',
+    tag: 'INVESTMENT MEMOS',
     title: 'Memos draft themselves.',
-    body: 'Every recommendation comes with a sourced compliance memo. Cited, dated, archived — ready for the regulator before they ask.',
+    body: 'Every recommendation comes with a sourced investment memo. Cited, dated, and ready for the decision meeting.',
     span: 'md:col-span-2 md:row-span-2',
     visual: 'compliance',
   },
   {
     tag: 'VAULT',
     title: 'Search every document.',
-    body: 'Trusts, statements, K-1s, beneficiary forms — semantic search across the firm.',
+    body: 'Leases, rent rolls, operating statements, and diligence files — semantic search across the firm.',
     span: 'md:col-span-1',
     visual: 'vault',
   },
   {
     tag: 'MEETINGS',
     title: 'Calls become tasks.',
-    body: 'Every conversation is captured, summarized, and filed against the household.',
+    body: 'Every conversation is captured, summarized, and filed against the property or deal.',
     span: 'md:col-span-1',
     visual: 'meetings',
   },
   {
-    tag: 'TAX',
-    title: 'Year-round, not December.',
-    body: 'Continuous monitoring of brackets, harvest windows, and Roth conversion timing.',
+    tag: 'SITE SELECTION',
+    title: 'From data to verdict.',
+    body: 'Continuous analysis of demand, competition, trade area, and site fit.',
     span: 'md:col-span-1',
     visual: 'tax',
   },
   {
-    tag: 'RMD',
+    tag: 'DEADLINES',
     title: 'Never miss a deadline.',
-    body: 'Required distributions queued, calculated, and executed on schedule.',
+    body: 'Lease dates, diligence tasks, and follow-ups queued and tracked on schedule.',
     span: 'md:col-span-1',
     visual: 'rmd',
   },
   {
-    tag: 'CUSTODIANS',
+    tag: 'DATA SOURCES',
     title: 'Live across every desk.',
-    body: 'Schwab, Fidelity, Pershing, Altruist — connected and reconciled in real time. No nightly batch, no spreadsheet bridge.',
+    body: 'Property data, CRM, deal systems, and documents — connected and reconciled in real time. No spreadsheet bridge.',
     span: 'md:col-span-2',
     visual: 'custodian',
   },
@@ -90,7 +90,7 @@ export default function BentoGrid() {
           EVERY SURFACE
         </div>
         <h2 className="text-3xl md:text-5xl font-light text-white mb-20 leading-tight max-w-3xl">
-          One firm. One model.
+          One firm. One CRE model.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(220px,auto)]">

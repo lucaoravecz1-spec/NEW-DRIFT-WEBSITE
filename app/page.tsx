@@ -60,7 +60,7 @@ export default function Home() {
 
   const chips = [
     {
-      label: 'Tax Plan',
+      label: 'Site Analysis',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18M7 16l4-6 4 4 6-8" />
@@ -68,7 +68,7 @@ export default function Home() {
       ),
     },
     {
-      label: 'Compliance Review',
+      label: 'Deal Screening',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -76,7 +76,7 @@ export default function Home() {
       ),
     },
     {
-      label: 'Portfolio Audit',
+      label: 'Due Diligence',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8m0 0h-5m5 0v5" />
@@ -84,7 +84,7 @@ export default function Home() {
       ),
     },
     {
-      label: 'RMD Calendar',
+      label: 'Lease Review',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -92,7 +92,7 @@ export default function Home() {
       ),
     },
     {
-      label: 'Trust Document',
+      label: 'Zoning Report',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z" />
@@ -137,8 +137,8 @@ export default function Home() {
                 className="mt-6 mx-auto text-[16px] md:text-[17px] leading-relaxed font-light"
                 style={{ color: '#8b8780', maxWidth: '540px' }}
               >
-                AI agents for RIAs that draft compliance memos, surface tax-loss
-                opportunities, and{' '}
+                CRE-smart AI that analyzes properties, surfaces deal risks,
+                automates follow-through, and{' '}
                 <em className="italic text-[#E8E2D5]/85">
                   keep the human in the loop
                 </em>

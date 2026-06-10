@@ -27,7 +27,7 @@ export const navConfig: NavItem[] = [
       {
         label: 'Assistant',
         href: '/product/assistant',
-        desc: "Daily co-pilot grounded in your firm's data",
+        desc: "CRE reasoning grounded in your firm's data",
         visual: 'assistant',
       },
       {
@@ -39,13 +39,13 @@ export const navConfig: NavItem[] = [
       {
         label: 'Agents',
         href: '/product/agents',
-        desc: 'Always-on planning workflows',
+        desc: 'Always-on deal and property workflows',
         visual: 'agents',
       },
       {
-        label: 'Compliance',
+        label: 'Execution',
         href: '/product/compliance',
-        desc: 'Regulatory review built in',
+        desc: 'Voice, SMS, and proactive follow-through',
         visual: 'compliance',
       },
     ],
@@ -61,8 +61,8 @@ export const navConfig: NavItem[] = [
       { label: 'Customers', href: '/customers', desc: 'Case studies and stories', visual: 'customers' },
       { label: 'ROI Calculator', href: '/roi', desc: "Estimate your firm's value", visual: 'roi' },
       { label: 'Security', href: '/security', desc: 'SOC 2, encryption, data handling', visual: 'security' },
-      { label: 'Integrations', href: '/integrations', desc: 'Custodians, CRMs, planning', visual: 'integrations' },
-      { label: 'Blog', href: '/blog', desc: 'Writing on AI and wealth management', visual: 'blog' },
+      { label: 'Integrations', href: '/integrations', desc: 'Property data, CRMs, deal systems', visual: 'integrations' },
+      { label: 'Blog', href: '/blog', desc: 'Writing on AI and commercial real estate', visual: 'blog' },
     ],
   },
   {
@@ -84,7 +84,7 @@ export const footerConfig = {
     { label: 'Assistant', href: '/product/assistant' },
     { label: 'Vault', href: '/product/vault' },
     { label: 'Agents', href: '/product/agents' },
-    { label: 'Compliance', href: '/product/compliance' },
+    { label: 'Execution', href: '/product/compliance' },
     { label: 'Pricing', href: '/pricing' },
   ],
   company: [

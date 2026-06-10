@@ -2,19 +2,19 @@ const COLUMNS = [
   {
     eyebrow: 'Single-workflow tools',
     title: 'One job, done well.',
-    body: 'Best-in-class for a narrow surface — meeting prep, document review, tax planning, or compliance — but each one is its own model of the household.',
+    body: 'Best-in-class for a narrow surface — maps, comps, foot traffic, or underwriting — but each one leaves the final interpretation to your team.',
     accent: false,
   },
   {
     eyebrow: 'Drift',
     title: 'The connective layer.',
-    body: 'One model of every household, shared across meeting prep, document review, tax planning, and compliance. The work compounds because the context does.',
+    body: 'One model of every property and deal, shared across site analysis, underwriting, diligence, and operations. The work compounds because the context does.',
     accent: true,
   },
   {
     eyebrow: 'Generic AI assistants',
     title: 'Smart, but ungrounded.',
-    body: 'Powerful general models with no read on your custodial data, your IPS, or your prior client conversations — so the answers are plausible, not sourced.',
+    body: 'Powerful general models with no read on your property data, deal files, or market context — so the answers are plausible, not sourced.',
     accent: false,
   },
 ]
@@ -27,13 +27,12 @@ export default function CompetitivePositioning() {
           DIFFERENT FROM THE POINT TOOLS
         </div>
         <h2 className="text-3xl md:text-5xl font-light text-white leading-[1.06] tracking-tight max-w-3xl">
-          One household model, every workflow.
+          One property model, every workflow.
         </h2>
         <p className="mt-6 text-base md:text-lg text-[#E8E2D5]/65 max-w-2xl font-light leading-relaxed">
-          Most AI tools for advisors handle one workflow well. Drift is the
-          connective layer across all of them — meeting prep, document review,
-          tax planning, and compliance — sharing the same model of every
-          household.
+          Most CRE tools handle one data surface well. Drift is the connective
+          layer across all of them — site analysis, underwriting, diligence,
+          and operations — sharing the same model of every property and deal.
         </p>
 
         <div className="mt-14 grid md:grid-cols-3 gap-px bg-white/[0.06] border border-white/[0.06] rounded-2xl overflow-hidden">

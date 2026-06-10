@@ -137,7 +137,7 @@ export default function Page() {
             Drift reads from where your <em className="font-serif italic text-[#E8E2D5]">data already lives.</em>
           </>
         }
-        lede="Custodians, portfolio accounting, planning, CRM, document storage, communications. Read-only by default; the system of record stays the system of record."
+        lede="Property data, deal systems, CRM, document storage, and communications. Read-only by default; the system of record stays the system of record."
       />
 
       <section className="px-6 py-20">
